@@ -1,0 +1,4 @@
+ExternalAuth.Facebook
+Widgets.GoogleAnalytics
+Widgets.NivoSlider
+Technoscore.HeaderBanner

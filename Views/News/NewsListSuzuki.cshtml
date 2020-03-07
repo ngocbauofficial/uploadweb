@@ -1,0 +1,46 @@
+﻿@model NewsItemListModel
+@using Nop.Web.Models.News;
+@{
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+    //title
+    Html.AddTitleParts("Tin Suzuki");
+    //page class
+    Html.AppendPageCssClassParts("html-news-list-page");
+    Html.AddCssFileParts(ResourceLocation.Head, "~/Themes/DefaultClean/Content/css/tintuc.css");
+}
+<div class="row m-0 p-0">
+    <div class="page-title col-md-12">
+        <a href="@Url.RouteUrl("NewsRSS", new { languageId = Model.WorkingLanguageId })" class="link-rss" title="@T("News.RSS.Hint")">@T("News.RSS")</a>
+        <h1 class="new-title">Tin Tức Suzuki</h1>
+    </div>
+
+    @foreach (var item in Model.NewsItems)
+    {
+        <div class="col-md-4 col-sm-6 fix-view">
+            <div class="card text-left">
+                <img class="card-img-top"
+                     src="@item.PictureModel.ImageUrl"
+                     alt="@item.MetaTitle">
+                <div class="card-body  mb-4">
+                    <h3 class="card-title">
+                        <a href="@item.SeName">
+                            @item.Title
+                        </a>
+                    </h3>
+                    <p class="card-text">@item.Short</p>
+                    <a href="@item.SeName" class="view-all">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    }
+    @{
+        var pager = Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber");
+    }
+    @if (!pager.IsEmpty())
+    {
+        <div class="pager">
+            @pager
+        </div>
+    }
+    @Html.Widget("newslist_page_after_items")
+</div>

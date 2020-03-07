@@ -1,0 +1,89 @@
+﻿@using Nop.Web.Models.Catalog;
+@using Nop.Core.Domain.Directory;
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    //page class
+    Html.AppendPageCssClassParts("html-home-page");
+}
+<div class="bbb">
+    @Html.Widget("du-toan-chi-phi")
+</div>
+<section>
+    <div class="container text-du-toan mt-3">
+        <div class="dutoan text-left">
+            <h2 class="text-uppercase">dự toán chi phí</h2>
+            <div class="line-bk mb-2"></div>
+            <p class="mb-2" style=" font-size 15px;">
+                Mức biểu phí dưới đây là tạm tính và có thể thay đổi do sự thay đổi của thuế và phí
+                theo quy định
+                của Nhà nước và các bên cung cấp dịch vụ khác. Mức bảo hiểm chưa bao gồm 10% VAT.
+            </p>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <div class="selectcars">
+                    <p class="fix-lb">
+                        <label for="">Chọn xe:</label>
+                        <select class="main" id="carsid">
+                            <option value="0">Chọn</option>
+                         @foreach (var item in ViewData["cars"] as IList<ProductOverviewModel>)
+                         {
+                            <option value="@item.Id">@item.Name</option>
+                         }
+                        </select>
+                    </p>
+                    <div id="checkversion">
+                    </div>
+                    <p>
+                        <label for="">Nơi đăng ký trước bạ:</label>
+                        <select class="main-2" id="districtid">
+                            @foreach (var item in ViewData["district"] as IList<StateProvince>)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                    </p>
+                </div>
+                <div class="d-flex justify-content-center btn-tranf" style="transform:translateX(-9%);">
+                    <a id="my-click" class="click-dtcp  mt-3">Dự Toán</a>
+                </div>
+            </div>
+            <div class="col-md-6 price-dtcp active">
+                <div id="price_calculator_result" class="calculator-result-1 " style="display: block;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $("#carsid").change(function () {
+            var selectedItem = $(this).val();
+            $.ajax({
+                url: "/CostEstimates/Getversion",
+                    type: "POST",
+                    dataType: "html",
+                    data: { "productId": selectedItem },          
+                  success:  function (data) {  
+                      $("#checkversion").html(data);
+                    },
+            });
+        });
+    });
+</script>
+<script>
+        $("#my-click").click(function () {
+            var selectedItem = $("#carsid").val();
+            var selectedItem1 = $("#version").val();
+            var selectedItem2 = $("#districtid").val();
+            $.ajax({
+                url: "/CostEstimates/ESTIMATE",
+                    type: "POST",
+                    dataType: "html",
+                    data: { "productId": selectedItem, "versionproduct": selectedItem1, "districtid": selectedItem2 },
+                  success:  function (data) {
+                      $("#price_calculator_result").html(data);
+                    },
+            });
+        });
+</script>

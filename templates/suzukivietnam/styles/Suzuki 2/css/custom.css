@@ -1,0 +1,702 @@
+@font-face {
+  font-family: 'UTM Impact';
+  src: url('https://www.suzuki.com.vn/templates/suzukivietnam/styles/Suzuki 2/fonts/UTM Impact.eot');
+  src: local('☺'), url('https://www.suzuki.com.vn/templates/suzukivietnam/styles/Suzuki 2/fonts/UTM Impact.woff') format('woff'), url('https://www.suzuki.com.vn/templates/suzukivietnam/styles/Suzuki 2/fonts/UTM Impact.ttf') format('truetype'), url('https://www.suzuki.com.vn/templates/suzukivietnam/styles/Suzuki 2/fonts/UTM Impact.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+video {
+    width: 100%;
+}
+table td p {
+    margin-bottom: 0;
+}
+/* hà giang */
+body.tm-noblog.hagiang-tamgiacmach.tm-article-blog {
+    overflow-x: hidden;
+}
+body.tm-noblog.chay-thu-gd-110.tm-article-blog {
+    overflow-x: hidden;
+}
+section#section-id-1510641955536 {
+    padding-top: 0 !important;
+    max-width: 1120px;
+    margin: 0 auto !important;
+}
+section#section-id-1510211178366 {
+    max-width: 1120px;
+    display: block;
+    margin: 0 auto !important;
+}
+section#section-id-1509345846927 {
+    padding-bottom: 0 !important;
+}
+section#section-id-1509345846934 {
+    padding-top: 0 !important;
+    max-width: 1120px;
+    margin: 0 auto !important;
+}
+section#section-id-1509090725290 {
+    padding-top: 0 !important;
+}
+section#section-id-1509090725306 {
+    padding-top: 0 !important;
+}
+section#section-id-1509273649572 {
+    padding-bottom: 0 !important;
+}
+section#section-id-1509331465297 {
+    max-width: 1120px;
+    margin: 0 auto !important;
+}
+section#section-id-1509331465293 {
+    padding: 0 !important;
+}
+.sppb-row-container {
+    width: 100% !IMPORTANT;
+    PADDING: 0;
+  }
+@media (MAX-width: 992px){
+section#section-id-1509090725285 {
+    PADDING: 0 !IMPORTANT;
+}
+}
+body.tm-noblog.hagiang-tamgiacmach.tm-article-blog > .tm-block > .uk-container.uk-container-center {
+    max-width: 100%;
+    padding: 0;
+}
+body.tm-noblog.chay-thu-gd-110.tm-article-blog > .tm-block > .uk-container.uk-container-center {
+    max-width: 100%;
+    padding: 0;
+}
+body.tm-noblog.hagiang-tamgiacmach.tm-article-blog > .tm-block.tm-headerbar.uk-clearfix > .uk-container.uk-container-center {
+    max-width: 980px;
+}
+body.tm-noblog.chay-thu-gd-110.tm-article-blog > .tm-block.tm-headerbar.uk-clearfix > .uk-container.uk-container-center {
+    max-width: 980px;
+}
+section#section-id-1509099681285 {
+    max-width: 1120px;
+    display: block;
+    margin: 0 auto !important;
+}
+section#section-id-1509090725285 {
+    padding-top: 0 !important;
+}
+section#section-id-1509090725290 {
+    max-width: 1120px;
+    float: none;
+    margin: auto !important;
+}
+
+
+
+@media (min-width: 1200px){
+.sppb-row-container {
+    width: 100%;
+  padding: 0;
+  }}
+/* popup */
+a.first-popup {
+    display: block;
+    width: 48%;
+    height: 100%;
+    padding-bottom: 50%;
+    position: absolute;
+}
+a.second-popup {
+    display: block;
+    width: 51%;
+    height: 100%;
+    left:49%;
+    padding-bottom: 50%;
+    position: absolute;
+}
+@media screen and (max-width: 959px) {
+  a.logovff {
+    position: relative !important;
+}
+}
+a.logovff {
+    display: block;
+    z-index:9;
+}
+.tm-block.tm-block-dark > .uk-container.uk-container-center
+ {
+    max-width: 100% !important;
+}
+.bang-gia-o-to > ul.uk-dotnav.uk-flex-left > li.uk-active {
+    display: none !important;
+}
+@media screen and (min-width:960px) {
+  .button-hotline {
+    display:none !important;
+  }
+
+}
+a.hotline {
+color:white;
+
+}
+a.hotline:hover {
+color:white;
+
+}
+.button-hotline {
+       text-align: center;
+    background: #b7161d;
+    margin: 10px 0px;
+    padding: 10px 0px;
+    border-radius: 5px;
+    border: solid 2px white;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+div#thietke {
+    position: absolute;
+    top: -20%;
+}
+div#thongsokythuat {
+    position: absolute;
+    top: -20%;
+}
+div#ketcau {
+    position: absolute;
+    top: -20%;
+}
+section.tm-bottom-a.uk-grid > .uk-width-1-1 > .uk-panel.uk-panel-box {
+    background: white !important;
+}
+@media (max-width: 960px) {
+  .uk-panel.nopadding > h3.uk-panel-title {
+    margin-left: 10px !important;
+}
+}
+.GSX-R150 > .uk-grid.uk-grid-collapse.uk-text-left.uk-flex-middle > .uk-width-large-2-3.uk-text-center.uk-scrollspy-init-inview.uk-scrollspy-inview.uk-animation-slide-left {
+    width: 65.5% !important;
+} }
+.bang-gia-o-to > ul.uk-dotnav.uk-flex-left {
+    display: none !important;
+}
+/* edit widgetkit*/
+.clear-thumb-bang-gia-xe-may > .uk-tab-center {
+    display: none !important;
+}
+.clear-thumb-bang-gia-xe-may > ul.uk-subnav.uk-subnav-line.uk-flex-center {
+    display: none !important;
+}
+/* layout 2w */
+body.tm-isblog.xemay-layout.tm-article-blog > .tm-block > .uk-container.uk-container-center {
+    /*max-width: 1130px !important;*/
+}
+.reponsive-4 {
+   display: none;
+}
+.reponsive-3 {
+    width: 33%;
+    float: right;
+    color: white;
+}
+    .uk-overlay-background {
+    background: rgba(0, 0, 0, 0) !important;
+}
+@media screen and (max-width:960px)  {
+   .reponsive-3 {
+   display: none;
+}
+  .uk-width-large-2-3.uk-scrollspy-inview.uk-animation-slide-right.uk-margin-top {
+    padding: 0px 10px;
+}
+   .reponsive-4 {
+   display: block !important;
+     padding: 0px 10px;
+}
+  .uk-margin {
+    padding: 0px 10px;
+}
+}
+
+/*-----*/
+
+body.tm-isblog.test-driver-fix > .tm-wrapper > .uk-container.uk-container-center > section.tm-top-a.uk-grid {
+    margin-left: 0 !important;
+}
+body.tm-isblog.test-driver-fix > .tm-wrapper > .uk-container.uk-container-center > section.tm-top-b.uk-grid {
+    margin-left: 0 !important;
+}
+/*homepage edit*/
+@media (min-width: 1220px) {
+  .uk-grid + .uk-grid,
+  .uk-grid-margin,
+  .uk-grid > * > .uk-panel + .uk-panel {
+    margin-top: 0px !important;
+  }
+}
+
+/*banner reponsive*/
+.sppb-carousel-pro-text > p > a > img {
+  width: 100% !important;
+
+}
+
+/*Raider*/
+.sppb-addon.sppb-addon-single-image.sppb-text-center.margin-top-img {
+    margin-top: 4px;
+}
+
+/*GZ150 Màu thumb */
+#nextend-smart-slider-39-thumbnail > .nextend-thumbnail-container.nextend-thumbnail.nextend-thumbnail-gallery.nextend-thumbnail-gallery-aligncenter > .nextend-thumbnail.nextend-thumbnail-gallery.nextend-thumbnail-gallery-aligncenter.active {
+    opacity: 1 !important;
+}
+/*xehoi-banner-2*/
+.sppb-item.sppb-item-has-bg .sppb-carousel-item-inner {
+    padding: 0px 0px !important;
+}
+/* Top padding , Son */
+
+.ttxemay .tm-block > .uk-container > .uk-grid, .tm-block > .uk-container > .tm-footer {
+    padding: 30px 0;
+}
+
+.ttoto .tm-block > .uk-container > .uk-grid, .tm-block > .uk-container > .tm-footer {
+    padding: 30px 0;
+}
+
+.tm-block > .uk-container > .uk-grid, .tm-block > .uk-container > .tm-footer {
+    padding: 0px 0;
+}
+
+
+
+/* 2w create by Chuong*/
+@media screen and (MAX-width: 430px) {
+    .sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-1 {
+   display: none !important;
+   }
+   .sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-2 {
+ display: none !important;
+   }
+   .sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-3 {
+ display: none !important;
+   }
+
+}
+
+@media screen and (MAX-width: 550px) and (min-width: 431px) {
+
+
+   .sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-1 {
+    margin-top: 54px !IMPORTANT;
+    left: 28px !important;
+      WIDTH: 15px !important;
+   }
+   .sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-2 {
+   margin-top: 54px !IMPORTANT;
+   LEFT: 135px !IMPORTANT;
+         WIDTH: 15px !important;
+   }
+   .sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-3 {
+    margin-top: 54px !IMPORTANT;
+    LEFT: 316px    !IMPORTANT;
+    RIGHT: 4%;
+    DISPLAY: BLOCK;
+    MARGIN-RIGHT: 3%;
+         WIDTH: 15px !important;
+   }
+  h5.sppb-addon-title {
+    FONT-SIZE: 0.7em !IMPORTANT;
+    width : 180px !important;
+  }
+}
+@media screen and (MAX-width: 630px) and (MIN-width: 551px){
+   .sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-1 {
+    margin-top: 19px !IMPORTANT;
+    LEFT: 350px    !IMPORTANT;
+    WIDTH: 15PX !IMPORTANT;
+
+   }
+   .sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-2 {
+   margin-top: 37px !IMPORTANT;
+    LEFT: 350px    !IMPORTANT;
+    WIDTH: 15PX !IMPORTANT;
+
+   }
+   .sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-3 {
+    margin-top: 55px !IMPORTANT;
+    LEFT: 316px    !IMPORTANT;
+    WIDTH: 15PX !IMPORTANT;
+   }
+  h5.sppb-addon-title {
+    FONT-SIZE: 0.7em !IMPORTANT;
+    width : 180px !important;
+  }
+}
+@media screen and (MAX-width: 830px) and (MIN-width: 630px){
+   .sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-1 {
+    margin-top: 19px !IMPORTANT;
+    LEFT: 400px  !IMPORTANT;
+      WIDTH: 16PX !IMPORTANT;
+   }
+   .sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-2 {
+    margin-top: 37px !IMPORTANT;
+    LEFT: 400px  !IMPORTANT;
+      WIDTH: 16PX !IMPORTANT;
+   }
+   .sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-3 {
+    margin-top: 55px !IMPORTANT;
+    LEFT: 366px !IMPORTANT;
+      WIDTH: 16PX !IMPORTANT;
+   }
+  select#category_id {
+    margin: 20px 0px !important;
+}
+}
+.sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-1 {
+   position: absolute;
+    margin-top: 30px;
+    RIGHT: 29%;
+    WIDTH: 215PX;
+    DISPLAY: BLOCK;
+    MARGIN-RIGHT: 3%;
+}
+.sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-2 {
+   position: absolute;
+    margin-top: 30px;
+    RIGHT: 15%;
+    DISPLAY: BLOCK;
+    WIDTH: 215PX;
+    MARGIN-RIGHT: 3%;
+}
+.sppb-addon.sppb-addon-single-image.sppb-text-left.icon2w-3 {
+    position: absolute;
+    margin-top: 30px;
+    MARGIN-LEFT: 34PX !IMPORTANT;
+    RIGHT: 4%;
+    WIDTH: 80PX;
+}
+h5.sppb-addon-title {
+      width: 195px;
+    margin-left: 22px;
+    position: absolute;
+    font-size: 0.8em;
+
+}
+/* resize title by chuong */
+.uk-article-title {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.uk-container {
+    box-sizing: border-box;
+    max-width: 980px;
+    padding: 0px 10px;
+}
+.fancybox-inner p {
+  margin-bottom: 0px;
+}
+div#nextend-smart-slider-68 .nextend-thumbnail-container {
+    text-align: center;
+    display: block;
+}
+div#nextend-smart-slider-68 .nextend-thumbnail-container .nextend-thumbnail {
+    width: 100px;
+    height: 50px;
+}
+div#nextend-smart-slider-68 .nextend-thumbnail-container .nextend-thumbnail.nextend-thumbnail-gallery.nextend-thumbnail-gallery-aligncenter:last-child {
+    width: 250px !important;
+}
+.auto-reviews-block ul > li.uk-active > .uk-panel {
+    background: #012a54;
+    padding: 10pt 5pt;
+}
+.auto-reviews-block ul > li.uk-active > .uk-panel > .uk-panel-title,
+.auto-reviews-block ul > li.uk-active > .uk-panel h6,
+.auto-reviews-block ul > li.uk-active > .uk-panel .uk-h6,
+.auto-reviews-block ul > li.uk-active > .uk-panel em {
+  color:#fff;
+}
+.auto-reviews-block ul > li.uk-active > .uk-panel > .uk-panel-title {
+  margin-bottom:0px;
+}
+.auto-reviews-block ul > li.uk-active > .uk-panel > .uk-margin {
+  margin-top:0px;
+}
+.auto-reviews-block ul > li.uk-active > .uk-panel > .uk-margin > h6 {
+  margin-bottom:10px;
+  font-weight: bold;
+}
+.auto-reviews-title {
+    text-align: center;
+}
+.auto-reviews-title strong {
+    font-size: 18pt !important;
+    color: #032b55;
+    background: url(../../../images/sep.png) no-repeat center bottom transparent;
+    padding-bottom: 30px;
+    margin-bottom: 5pt;
+    display: block;
+    font-weight: normal;
+}
+body.gsx-r150 .uk-panel-title,
+body.gsx-s150 .uk-panel-title,
+body.raider-r150 .uk-panel-title,
+body.gsx150 .uk-panel-title {
+  font-family: 'UTM Impact';
+}
+/* .fixed-content-wrap {
+    position: absolute;
+    z-index: 100;
+    bottom: 10px;
+    left: 56%;
+} */
+body.suzuki-homepage div.homepage-slider .fixed-content-wrap {
+    position: absolute;
+    z-index: 100;
+    top: 10px;
+}
+body.suzuki-homepage div.homepage-slider > div:first-child .fixed-content-wrap {
+    right: 10px;
+}
+body.suzuki-homepage div.homepage-slider > div:last-child .fixed-content-wrap {
+    right: 10px;;
+}
+@media screen and (max-width: 640px) {
+    body.suzuki-homepage div.homepage-slider .fixed-content-wrap {
+        display: none;
+    }
+}
+.social-button-group {
+    display: inline-block;
+    margin-right: 30px;
+}
+footer.tm-footer.uk-text-center {
+    position: relative;
+    overflow: hidden;
+    min-height: 120px;
+}
+.social-button-group h5 {
+    text-align: center;
+    font-weight: bold;
+    color: #a7a7a7;
+    margin-bottom: 0px;
+}
+a.uk-navbar-brand {
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    float: left;
+    line-height: 1em;
+}
+a.uk-navbar-brand p {
+    margin-bottom: 0;
+}
+a.tm-logo-small {
+    overflow: hidden;
+    height: auto;
+    float: left;
+}
+@media screen and (max-width: 640px){
+  .fixed-content-wrap .button-wrap img {
+    width: 24px;
+    height: 24px;
+  }
+}
+.gsx-s150 div[id$="-thumbnail"],
+.gsx-r150 div[id$="-thumbnail"],
+.raider-r150 div[id$="-thumbnail"],
+.impulse div[id$="-thumbnail"],
+.gsx150 div[id$="-thumbnail"],
+.gd110 div[id$="-thumbnail"] {
+    position: relative !important;
+    height: 200px;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+}
+.gsx-s150 div[id^="nextend-smart-slider-"],
+.gsx-r150 div[id^="nextend-smart-slider-"],
+.raider-r150 div[id^="nextend-smart-slider-"],
+.impulse div[id^="nextend-smart-slider-"],
+.gsx150 div[id^="nextend-smart-slider-"],
+.gd110 div[id^="nextend-smart-slider-"] {
+    height: 200% !important;
+}
+
+div#nextend-smart-slider-80 .nextend-thumbnail-container .nextend-thumbnail.nextend-thumbnail-gallery.nextend-thumbnail-gallery-aligncenter:first-child {
+      width: 152px !important;
+}
+div#nextend-smart-slider-80 .nextend-thumbnail-container .nextend-thumbnail.nextend-thumbnail-gallery.nextend-thumbnail-gallery-aligncenter:nth-child(3),
+div#nextend-smart-slider-80 .nextend-thumbnail-container .nextend-thumbnail.nextend-thumbnail-gallery.nextend-thumbnail-gallery-aligncenter:nth-child(5) {
+      width: 152px !important;
+}
+@media screen and (max-width: 640px) {
+  .gsx-s150 div[id^="nextend-smart-slider-"] .nextend-thumbnail-container .nextend-thumbnail,
+  .gsx-r150 div[id^="nextend-smart-slider-"] .nextend-thumbnail-container .nextend-thumbnail,
+  .raider-r150 div[id^="nextend-smart-slider-"] .nextend-thumbnail-container .nextend-thumbnail,
+  .address div[id^="nextend-smart-slider-"] .nextend-thumbnail-container .nextend-thumbnail,
+  .impulse div[id^="nextend-smart-slider-"] .nextend-thumbnail-container .nextend-thumbnail,
+  .gd110 div[id^="nextend-smart-slider-"] .nextend-thumbnail-container .nextend-thumbnail
+   {
+      width: 50px !important;
+      height: 50px !important;
+  }
+  .address div[id^="nextend-smart-slider-"] .nextend-widget {
+      bottom: -30px !important;
+  }
+  div#nextend-smart-slider-68 .nextend-thumbnail-container .nextend-thumbnail.nextend-thumbnail-gallery.nextend-thumbnail-gallery-aligncenter:last-child {
+        width: 47px !important;
+  }
+  div#nextend-smart-slider-70 .nextend-thumbnail-container .nextend-thumbnail.nextend-thumbnail-gallery.nextend-thumbnail-gallery-aligncenter:first-child {
+        /*width: 40px !important;*/
+  }
+}
+footer.tm-footer a {
+    color: #fff;
+    font-weight: bold;
+}
+footer.tm-footer a:hover {
+    color:#d6d6d6;
+}
+footer.tm-footer p {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+p#footerInfo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: left !important;
+}
+p#policyLink {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    z-index: 10000;
+}
+.uk-panel.logoVffWrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+}
+@media screen and (max-width: 1199px) {
+    .uk-panel.copyrightWrap {
+        position: relative;
+        width: 100%;
+        float: left;
+    }
+    p#footerInfo {
+        position: relative;
+        text-align: center !important;
+    }
+    p#policyLink {
+        position: relative;
+        top: auto;
+        right: auto;
+        text-align: center !important;
+    }
+    .uk-panel.logoVffWrap {
+        position: relative;
+        margin: 10px 0;
+    }
+}
+@media screen and (max-width: 959px) {
+  p#footerInfo {
+      position: relative;
+      top: auto;
+      left: auto;
+      text-align: center !important;
+  }
+  p#policyLink {
+    position: relative;
+    top: auto;
+    right: auto;
+    text-align: center !important;
+}
+}
+.uk-panel.mobile-only {
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .button-wrap.button-on-banner {
+        display: none;
+    }
+    .tm-block.tm-block-full-width > .uk-container.uk-container-center
+    {
+       width: 100% !important;
+       padding:0px;
+   }
+   .uk-panel.mobile-only {
+       display: block;
+    }
+}
+section.top-c-pos {
+    position: relative;
+}
+.aff-custom {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    text-align: center;
+    margin: 0;
+}
+@media screen and (max-width: 640px) {
+    .aff-custom {
+        position: relative;
+        width:100%;
+        left:auto;
+    }
+}
+
+.sppb-carousel-pro-text .red-btn-on-banner {
+    position: absolute;
+    bottom: 10px;
+    padding: 5px 30px;
+    text-align: center;
+    display: inline-block;
+    background: #f00;
+    color: #fff;
+    z-index: 999;
+  }
+  .sppb-carousel-pro-text #bioreBtn.red-btn-on-banner {
+    left:30%;
+  }
+  .sppb-carousel-pro-text #acvBtn.red-btn-on-banner {
+    right:5%;
+  }
+.tm-leading-article h1.uk-article-title {
+    font-size: 20px;
+}
+table.bordered_table td {
+    border: 1px solid;
+    padding: 10px;
+}
+.promo-fix {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 10000;
+    display: none;
+}
+#close-promo {
+    display: block;
+    position: absolute;
+    width:50px;
+    height:50px;
+    background:url('../images/close-promo-btn.png') no-repeat left top transparent;
+    background-size:100%;
+    right:0;
+    top:0;
+}
+.gd110-event-desc {
+    line-height: 1.4rem;
+    margin-top:10px;
+}
+.auto-append-link {
+    color: #0000EE;
+}

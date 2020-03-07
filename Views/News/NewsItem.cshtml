@@ -1,0 +1,48 @@
+﻿@model NewsItemModel
+@using Nop.Web.Models.News;
+@{
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/owl.carousel.min.js", true);
+    //title
+    Html.AddTitleParts(!String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Title);
+    //meta
+    Html.AddMetaDescriptionParts(Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+    Html.AddCssFileParts(ResourceLocation.Head, "~/Themes/DefaultClean/Content/css/tintuc.css");
+    //page class
+    Html.AppendPageCssClassParts("html-news-item-page");
+}
+<div class="page news-item-page">
+    <div class="page-title">
+        <h1>@Model.Title</h1>
+    </div>
+    <div class="page-body">
+        <div class="news-date">
+            @Model.CreatedOn.ToString("D")
+        </div>
+            @Html.Raw(Model.Full)
+    </div>
+    <div class="tintuc-lienquan">
+        @Html.Action("RelatedNews", "News")
+    </div>
+</div>
+@section scripts{
+    <script>
+            $('.new-sp').owlCarousel({
+                loop: false,
+                margin: 10,
+                nav: true,
+                // autoplay:true,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            })
+    </script>}

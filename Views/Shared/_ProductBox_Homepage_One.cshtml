@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ProductOverviewModel>
+@using Nop.Core
+@using Nop.Core.Domain.Orders
+@using Nop.Core.Domain.Tax
+@using Nop.Core.Infrastructure
+@using Nop.Web.Models.Catalog;
+<div class="discription">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        @foreach (var item in Model.Take(2))
+        {
+            <div class="col-md-4 col-sm-6 mt-5 mb-4 swift">
+                <div  class="images-fix text-center">
+                    <a href="@item.SeName"><img src="@item.DefaultPictureModel.ImageUrl" title="@item.DefaultPictureModel.Title" alt="@item.DefaultPictureModel.AlternateText" class="img-fluid"></a>
+                </div>
+                <div class="mo-ta" data-aos="fade-up" data-aos-delay="300" data-aos-duration="300">
+                    <a href="@item.SeName">@item.Name</a>
+                    <a href="@item.SeName">@item.ShortDescription</a>
+                </div>
+            </div>
+        }
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+<div class="content-nd">
+</div>
+<div class="discription">
+    <div class="row">
+        <div class="col-md-1"></div>
+@foreach (var item in Model.Skip(2).Take(1))
+{
+    <div class="col-md-4 col-sm-6 mb-5">
+        <div class="images-fix text-center">
+            <a href="@item.SeName"><img src="@item.DefaultPictureModel.ImageUrl" title="@item.DefaultPictureModel.Title" alt="@item.DefaultPictureModel.AlternateText" class="img-fluid"></a>
+        </div>
+        <div class="mo-ta" data-aos="fade-up" data-aos-delay="300" data-aos-duration="300">
+            <a href="@item.SeName">@item.Name</a>
+            <a href="@item.SeName">@item.ShortDescription</a>
+        </div>
+    </div>
+}
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        @foreach (var item in Model.Skip(3).Take(1))
+        {
+            <div class="col-md-4 col-sm-6 mb-5">
+                <div class="images-fix text-center">
+                    <a href="@item.SeName"><img src="@item.DefaultPictureModel.ImageUrl" title="@item.DefaultPictureModel.Title" alt="@item.DefaultPictureModel.AlternateText" class="img-fluid"></a>
+                </div>
+                <div class="mo-ta" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
+                    <a href="@item.SeName">@item.Name</a>
+                    <a href="@item.SeName">@item.ShortDescription</a>
+                </div>
+            </div>
+        }
+        <div class="col-md-1"></div>
+    </div>
+</div>

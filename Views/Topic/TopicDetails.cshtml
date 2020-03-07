@@ -1,0 +1,138 @@
+﻿@model TopicModel
+@using Nop.Core.Domain.Seo
+@using Nop.Core.Infrastructure
+@using Nop.Web.Models.Topics;
+@{
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/jquery.magnific-popup.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/swiper.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/popper.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/bootstrap.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/lightslider.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/owl.carousel.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/main.js", true);
+    Html.AddCssFileParts(ResourceLocation.Head, "~/Themes/DefaultClean/Content/css/sanham.css");
+    Html.AddCssFileParts(ResourceLocation.Head, "~/Themes/DefaultClean/Content/css/magnific-popup.css");
+	if(Model.Id == 20)
+{
+  Html.AddCssFileParts(ResourceLocation.Head, "~/Themes/DefaultClean/Content/css/history.css");
+}
+    var isPopup = ViewBag.IsPopup;
+    if (isPopup == null || isPopup == false)
+    {
+        Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    }
+    if (!Model.IsPasswordProtected)
+    {
+        //title
+        Html.AddTitleParts(!String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Title);
+        //meta
+        Html.AddMetaDescriptionParts(Model.MetaDescription);
+        Html.AddMetaKeywordParts(Model.MetaKeywords);
+    }
+    var canonicalUrlsEnabled = EngineContext.Current.Resolve<SeoSettings>().CanonicalUrlsEnabled;
+    if (canonicalUrlsEnabled)
+    {
+        var topicUrl = Url.RouteUrl("Topic", new { SeName = Model.SeName }, this.Request.Url.Scheme);
+        Html.AddCanonicalUrlParts(topicUrl);
+    }
+    //page class
+    Html.AppendPageCssClassParts("html-topic-page");
+}
+@if (Model.IsPasswordProtected)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#button-password').click(function () {
+                var postData = {
+                    id: $("#@Html.FieldIdFor(model => model.Id)").val(),
+                    password: $('#password').val()
+                };
+                addAntiForgeryToken(postData);
+                $.ajax({
+                    cache: false,
+                    type: 'POST',
+                    url: '@Url.RouteUrl("TopicAuthenticate")',
+                    data: postData,
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.Authenticated) {
+                            $('#ph-topic #ph-title h1').html(data.Title);
+                            if ($('#ph-topic #ph-title h1').text().length == 0) {
+                                $('#ph-title').hide();
+                            }
+                            $('#ph-topic .page-body').html(data.Body);
+                            $('#ph-password').hide();
+                            $('#ph-topic').show();
+                        }
+                        else {
+                            $('#password-error').text(data.Error).fadeIn("slow");
+                            $('#ph-password #password').select().focus();
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+        $(document).ready(function () {
+            $('#ph-topic').hide();
+            $('#ph-password #password').select().focus();
+        });
+    </script>
+    <div class="topic-password" id="ph-password">
+        @using (Html.BeginRouteForm("TopicAuthenticate"))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+            <div class="enter-password-title">
+                @T("Topic.EnterPassword")
+            </div>
+            <div class="enter-password-form">
+                @Html.Password("password")
+                <input type="submit" id="button-password" value="@T("Topic.Button")" class="button-1 topic-password-button" />
+            </div>
+            <div class="password-error" id="password-error" style="display: none;"></div>
+        }
+    </div>
+}
+        @Html.Raw(Model.Body)
+@if (Model.Id == 17)
+{
+    <script>
+$(function () {
+            $("select.main").on("change", function () {
+                //remove active
+                $("select.models.active").removeClass("active");
+                //check if select vlass exists..if it does show it
+                var subList = $("select.models." + $(this).val());
+                if (subList.length) {
+                    //it does! show it by adding active class to it
+                    subList.addClass("active");
+                }
+            });
+        });
+</script>
+}
+@if (Model.Id == 20)
+{
+ <script>
+        $(document).ready(function () {
+            $('.popup-gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                tLoading: 'Loading image #%curr%...',
+                mainClass: 'mfp-img-mobile',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+                },
+                image: {
+                    tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+                    titleSrc: function (item) {
+                        return item.el.attr('title') + '<small>history wall</small>';
+                    }
+                }
+            });
+        });
+    </script>
+}

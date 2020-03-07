@@ -1,0 +1,782 @@
+.video {
+    width: 100%;
+}
+
+.navi, .navi-2 {
+    background: linear-gradient(to right, #006699, #38b7f7);
+}
+.close-item{
+    display: none !important;
+}
+.navi .nav-item .nav-link, .navi-2 .nav-item .nav-link {
+    color: white;
+    font-family: 'Open Sans';
+    padding: 5px 25px;
+    font-size: 13px;
+}
+
+.navi .nav-item .nav-link img {
+    display: block;
+    /* padding-bottom: 5px; */
+}
+
+.navi ul {
+    padding-left: 60px;
+}
+
+.navi .nav-item {
+    padding: 0 5px;
+    position: relative;
+}
+
+.navi .nav-item::before, .navi-2 .nav-item::before {
+    position: absolute;
+    width: 0;
+    height: 5px;
+    bottom: -3px;
+    background: #003145;
+    content: '';
+    transform: translate(-50%, -50%);
+    transition: ease-out 0.3s all;
+    left: 50%;
+}
+
+.navi .nav-item:hover::before, .navi-2 .nav-item:hover::before {
+    width: 100%;
+}
+
+.navi .nav-link2, .navi-2 .nav-link2 {
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    margin-top: 0px;
+    display: block;
+    /* padding: 6px 0; */
+    /* padding-right: 28px; */
+    background: #006699;
+    /* width: 0; */
+    position: relative;
+    /* height: 0; */
+    font-family: 'Open Sans';
+}
+
+.navi .nav-link2::before, .navi-2 .nav-link2::before {
+    content: '';
+    width: 0;
+    left: 100%;
+    position: absolute;
+    /* height: 53px; */
+    top: 0;
+    border-top: 73px solid #006699;
+    border-right: 87px solid transparent;
+}
+
+.navi .name-product {
+    padding: 0;
+}
+
+.mode {  
+    width: 100%;       
+    position: relative;
+    background:#003145;
+    padding:1rem;
+    margin-top:1rem;    
+}
+
+.mode::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+   
+}
+
+.mode h1 {
+       margin-bottom: 0;
+    color: #3399cc;
+    font-size: 2rem;
+    filter: brightness(300%);
+    font-family: 'Open Sans';
+}
+
+.mode p {
+    color: white;
+    filter: brightness(300%);
+    font-family: 'Segoe UI';
+}
+
+.exterior {
+   
+    width: 100%;
+    background:#003145;
+
+}
+
+.exterior::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+
+}
+
+.exterior h1 {
+    font-weight: bold;
+    padding:1rem;
+    color: #3399cc;
+  font-size: 2rem;
+    font-family: 'Open Sans';
+    filter: brightness(300%);
+}
+
+.exterior p {
+    color: white;
+    filter: brightness(300%);
+    font-family: 'Segoe UI';
+    padding: 0 30px;
+}
+
+.fix-img {
+    padding-right: 10px;
+}
+
+.fix-img img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.fix-img-fix {
+    padding: 0;
+}
+
+.fix-fix-img {
+    padding-left: 10px;
+}
+
+.vehicle-call-to-action {
+    background-color: #3399cc;
+    float: right;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 1rem 0px;
+}
+
+.vehicle-call-to-action a {
+    color: #FFF;
+    font-family: 'Open Sans';
+    display: block;
+    position: relative;
+    padding: 10px 50px 10px 20px;
+    font-size: 18px;
+    line-height: 18px;
+    text-decoration: none;
+}
+
+.vehicle-call-to-action a:hover {
+    background: rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.vehicle-call-to-action a small {
+    display: block;
+}
+
+.vehicle-call-to-action a::after {
+    content: "";
+    background-image: url('../images/san pham/arowsp.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 80%;
+    top: 15px;
+    width: 20px;
+    color: rgb(255, 255, 255);
+    line-height: 47px;
+    font-size: 28px;
+    z-index: 3;
+    height: 30px;
+}
+
+.wrapper {
+    padding-bottom: 4.5em;
+}
+
+.furniture {
+ background:#003145;
+    width: 100%;
+  
+    background-attachment: fixed;
+    position: relative;
+}
+
+.clear-float {
+    clear: both;
+}
+
+.furniture h1 {
+    font-weight: bold;
+    color: #3399cc;
+    padding:1rem;
+    font-size: 2rem;
+    filter: brightness(300%);
+    font-family: 'Open Sans';
+}
+
+
+
+.furniture::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+ 
+}
+
+.specifications {
+      background:#003145;
+    width: 100%;
+
+
+}
+
+.specifications::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+
+}
+
+.specifications h1 {
+    font-weight: bold;
+    padding:1rem;
+    color: #3399cc;
+  font-size: 2rem;
+    filter: brightness(300%);
+    font-family: 'Open Sans';
+}
+
+.specifications p {
+    color: white;
+    filter: brightness(300%);
+    font-family: 'Segoe UI';
+    padding:0 30px;
+}
+
+/* ************************* */
+
+.section-title {
+    color: #414141;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    border-bottom: 1px dashed #C1C1C1;
+    font-weight: 800;
+    line-height: 45px;
+    font-family: 'Open Sans';
+}
+.toggle-next.active{
+    background-image: url("../images/toggle-close.png") !important;
+}
+.toggle-next, .accordion-heading {
+    margin: 0 !important;
+    font-size: 14px !important;
+    color: white !important;
+    padding: 12px 12px 12px 40px;
+    border-bottom: 2px solid #FFF;
+    cursor: pointer;
+    background-color: #006699;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-image: url("../images/toggle-open.png");
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    font-family: 'Open Sans';
+}
+
+.the-content table, .the-content th, .the-content td {
+    border: 1px solid #ECECEC;
+}
+
+.the-content th, .the-content td {
+    padding: 10px 15px;
+}
+
+.vehicle-specs .toggle-content {
+    display: none;
+    padding-left: 0;
+}
+
+.toggle-content {
+    display: none;
+    padding: 0 0 0 40px;
+    padding-left: 40px;
+}
+
+.fixed-2 {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    transition: all 0.5s ease-out;
+}
+
+.price-list {
+  
+    width: 100%;
+   background:#003145;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.price-list::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+
+}
+
+.price-list h1 {
+    padding:1rem;
+    font-weight: bold;
+    color: #3399cc;
+    font-size: 2rem;
+    filter: brightness(300%);
+    font-family: 'Open Sans';
+}
+
+.price-list p {
+    color: white;
+    filter: brightness(300%);
+    font-family: 'Segoe UI';
+    padding: 0 30px;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.navi-2 {
+    display: none;
+}
+
+.mfp-figure small {
+    display: none;
+}
+
+.menu-mb-navi {
+    padding: 0;
+    display: none;
+    animation: opacity-animation 1s;
+}
+
+.menu-mb-navi li {
+    list-style: none;
+    text-align: left;
+    padding: 5px 0;
+    border-bottom: 1px solid #e5e3e3;
+}
+
+.menu-mb-navi li a {
+    color: white;
+    text-transform: uppercase;
+}
+
+.menu-mb-navi li a img {
+    width: 30px;
+    margin-right: 20px;
+}
+
+@-webkit-keyframes opacity-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes opacity-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes opacity-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes opacity-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.owl-carousel .owl-item img:hover {
+    transform: none;
+    transition: none;
+}
+
+.item {
+    overflow: hidden;
+}
+
+.galary-mobile {
+    display: none;
+}
+
+/* .owl-carousel .owl-item img{
+    height: 200px;
+} */
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #3399cc;
+    outline: none;
+}
+
+/* bang giá */
+
+.bang-gia td {
+    padding: 6px 10px;
+}
+
+.bang-gia td .title-tb {
+    font-weight: bold;
+    color: red;
+}
+
+.bang-gia tbody tr:nth-of-type(odd) {
+    background: #e7e7e7;
+}
+
+.bang-gia a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Open Sans';
+}
+
+.bang-gia tbody tr:hover {
+    background: #dadada;
+}
+
+.note span {
+    font-size: 10pt;
+    font-style: italic;
+    font-family: 'Open Sans';
+}
+
+.new-updates h1 {
+  font-weight: 600 !important;
+    font-size: 24px;
+    color: #003145;
+    font-family: 'Open Sans';
+}
+
+.mo-ta-new h3 {
+      -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    font-size: 20px;
+    height: 50px;
+    font-weight: 600 !important;
+    margin: 0;
+    font-family: 'Open Sans';
+}
+
+
+.mo-ta-new p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    font-size: 15px;
+    height: 70px;
+    margin: 0;
+    font-family: 'Open Sans';
+    padding-bottom: 10px;
+}
+
+.new-sp a {
+    text-decoration: none;
+    color: black;
+}
+
+.mo-ta-new {
+    padding-top: 10px;
+    /* padding-bottom: 5px; */
+    background-color: #EEE;
+    /* border-left: 1px solid #efefef; */
+    padding-left: 5px;
+}
+
+.qwe {
+    display: inline-block;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.qwe:hover {
+    transform: translateY(-10px);
+}
+
+.qwe:hover h3 {
+    color: #006699;
+}
+
+.point {
+    border-top: 1px solid #CBCBCB;
+    margin: 15px 25px 0px;
+    padding-top: 5px;
+    min-height: 186px;
+}
+
+.point p {
+    margin: 13px 0px;
+    font-size: 12px;
+    color: black;
+}
+
+.point p:before {
+    content: "■";
+    padding-right: 5px;
+    position: relative;
+    top: -1px;
+    color: #006699;
+    font-family: sans-serif;
+}
+
+.mode-s {
+    background-color: #EEE;
+    box-shadow: 5px 5px 10px -3px;
+}
+
+.mode-s:hover {
+    transform: translateY(-10px);
+    transition: 0.5s all;
+}
+
+.mode-s a {
+    text-decoration: none;
+}
+.mode p{
+    padding: 0 30px;
+}
+.phienban .name {
+    color: #343434;
+    font-weight: 800;
+    font-size: 35px;
+    line-height: 35px;
+    margin: 20px 25px 0;
+    padding-top: 20px;
+}
+
+.phienban .price {
+    color: #003145;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0px 25px;
+}
+
+.phienban .price small {
+    color: #696969;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    float: right;
+    line-height: 24px;
+}
+
+/* fix noi that */
+
+.test {
+    position: relative;
+    display: block !important;
+    overflow: hidden;
+    width: 100%;
+    height: 37vw;
+    background-position: center;
+    background-image: url('../images/san pham/6958_suzuki_celerio_interior_sz4_r1.jpg');
+    background-size: 86vw 40vw;
+    text-align: center; 
+}
+label{
+    background: transparent;
+}
+.test input {
+    display: none;
+}
+
+p {
+    margin: 0;
+}
+
+.button {
+    display: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #d32f2f;
+    display: block;
+    padding: 8px 16px;
+    border-radius: 100%;
+    cursor: pointer;
+    animation: fadein 0.5s;
+    animation: pulse 1.5s infinite;
+}
+
+.content {
+    /* background: white;
+    padding: 8px 12px;
+    text-align: center;
+    display: none;
+    position: relative;
+    margin: 0 auto;
+    width: 60%;
+    top: 8vw;
+    height: 40vw;
+    border-radius: 8px;
+    box-shadow: 0 4px 2px -2px rgba(211, 47, 47, 0); */
+    background: white;
+    padding: 8px 12px;
+    text-align: center;
+    display: none;
+    position: relative;
+    margin: 0 auto;
+    width: 60%;
+    top: 0vw;
+    height: 33vw;
+    border-radius: 8px;
+    box-shadow: 0 4px 2px -2px rgba(211, 47, 47,0);
+}
+
+.cross {
+    font-weight: bold;
+    width: 100%;
+}
+
+.bodyCopy {
+    margin-top: 18px;
+}
+
+#b1 {
+    position: absolute;
+    left: 42vw;
+    top: 10vw;
+}
+
+#b2 {
+    position: absolute;
+    left: 44vw;
+    top: 16vw;
+}
+
+#b3 {
+    position: absolute;
+    left: 41vw;
+    top: 30vw;
+}
+#b4 {
+    position: absolute;
+    left: 49vw;
+    top: 30vw;
+
+}
+
+.test #input1:checked~#content1 {
+    display: block !important;
+    animation: fadein 0.5s;
+}
+
+.test #input2:checked~#content2 {
+    display: block !important;
+    animation: fadein 0.5s;
+}
+
+.test #input3:checked~#content3 {
+    display: block !important;
+    animation: fadein 0.5s;
+}
+.test #input4:checked~#content4 {
+    display: block !important;
+    animation: fadein 0.5s;
+}
+
+.test input:checked~label .button {
+    display: none !important;
+    animation: fadeout 0.5s;
+}
+
+.button:hover {
+    color: #d32f2f;
+    background: white;
+}
+
+.cta {
+    display: inline-block;
+    background: #d32f2f;
+    color: white;
+    padding: 12px 24px;
+    margin-top: 48px;
+    border-radius: 24px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta:hover {
+    text-decoration: underline !important;
+    box-shadow: 0 0 0 6px rgba(211, 46, 46, 0.4);
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 0 0px rgba(211, 47, 47);
+    }
+    to {
+        box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
+    }
+}
+.test label{
+       background: transparent;
+}
+table{
+width:100% !important;	
+}
+/* end */

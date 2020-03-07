@@ -1,0 +1,157 @@
+﻿@model CommonStatisticsModel
+@using Nop.Core
+@using Nop.Services.Common
+@{
+    const string panelId = "nopcommerce-common-statistics-box";
+    const string hidePanelAttributeName = "HideCommonStatisticsPanel";
+    var hidePanel = EngineContext.Current.Resolve<IWorkContext>().CurrentCustomer.GetAttribute<bool>(hidePanelAttributeName);
+}
+<div class="box box-info @if(hidePanel){<text>collapsed-box</text>}" id="@panelId">
+    <div class="box-header with-border clearfix">
+        <div class="box-title">
+            <i class="fa ion-stats-bars"></i>
+            @T("Admin.Dashboard.CommonStatistics")
+        </div>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                @if (hidePanel)
+                {
+                    <text><i class="fa fa-plus"></i></text>
+                }
+                else
+                {
+                    <text><i class="fa fa-minus"></i></text>
+                }
+            </button>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>@Model.NumberOfOrders</h3>
+                    <p>@T("Admin.Dashboard.NumberOfOnlineCustomer")</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a href="@Url.Action("List", "Order")" class="small-box-footer">
+                    @T("Admin.Dashboard.MoreInfo")
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>@Model.NumberOfPendingReturnRequests</h3>
+                    <p>@T("Admin.Dashboard.NumberOfPendingReturnRequests")</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-refresh"></i>
+                </div>
+                <a href="@Url.Action("List", "ReturnRequest")" class="small-box-footer">
+                    @T("Admin.Dashboard.MoreInfo")
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>@Model.NumberOfCustomers</h3>
+                    <p>@T("Admin.Dashboard.NumberOfCustomers")</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+                <a href="@Url.Action("List", "Customer")" class="small-box-footer">
+                    @T("Admin.Dashboard.MoreInfo")
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>@Model.NumberOfLowStockProducts</h3>
+                    <p>@T("Admin.Dashboard.NumberOfLowStockProducts")</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="@Url.Action("LowStockReport", "Product")" class="small-box-footer">
+                    @T("Admin.Dashboard.MoreInfo")
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $('#@panelId').on('click', 'button[data-widget="collapse"]', function () {
+                    var collapsed = !$('#@panelId').hasClass('collapsed-box');
+                    saveUserPreferences('@(Url.Action("SavePreference", "Preferences"))', '@hidePanelAttributeName', collapsed);
+                });
+            });
+        </script>
+    </div>
+</div>
+@*<script>
+    (function (w, d, s, g, js, fs) {
+        g = w.gapi || (w.gapi = {}); g.analytics = { q: [], ready: function (f) { this.q.push(f); } };
+        js = d.createElement(s); fs = d.getElementsByTagName(s)[0];
+        js.src = 'https://apis.google.com/js/platform.js';
+        fs.parentNode.insertBefore(js, fs); js.onload = function () { g.load('analytics'); };
+    }(window, document, 'script'));
+</script>
+<div id="embed-api-auth-container"></div>
+<div id="chart-container"></div>
+<div id="view-selector-container"></div>
+<script>
+    gapi.analytics.ready(function () {
+        /**
+         * Authorize the user immediately if the user has already granted access.
+         * If no access has been created, render an authorize button inside the
+         * element with the ID "embed-api-auth-container".
+         */
+        gapi.analytics.auth.authorize({
+            container: 'embed-api-auth-container',
+            clientid: 'REPLACE WITH YOUR CLIENT ID'
+        });
+        /**
+         * Create a new ViewSelector instance to be rendered inside of an
+         * element with the id "view-selector-container".
+         */
+        var viewSelector = new gapi.analytics.ViewSelector({
+            container: 'view-selector-container'
+        });
+        // Render the view selector to the page.
+        viewSelector.execute();
+        /**
+         * Create a new DataChart instance with the given query parameters
+         * and Google chart options. It will be rendered inside an element
+         * with the id "chart-container".
+         */
+        var dataChart = new gapi.analytics.googleCharts.DataChart({
+            query: {
+                metrics: 'ga:sessions',
+                dimensions: 'ga:date',
+                'start-date': '30daysAgo',
+                'end-date': 'yesterday'
+            },
+            chart: {
+                container: 'chart-container',
+                type: 'LINE',
+                options: {
+                    width: '100%'
+                }
+            }
+        });
+        /**
+         * Render the dataChart on the page whenever a new view is selected.
+         */
+        viewSelector.on('change', function (ids) {
+            dataChart.set({ query: { ids: ids } }).execute();
+        });
+    });
+</script>*@

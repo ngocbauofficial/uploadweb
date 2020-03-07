@@ -1,0 +1,22 @@
+.container {
+    max-width: 1250px !important;
+}
+.row{
+    padding: 0 !important;
+}
+.logo-header{
+    padding: 0;
+}
+.nav-right{
+    padding: 0;
+}
+.title-top ul li{
+    list-style: none;
+    padding: 0 10px;
+}
+.title-top ul li a{
+    color: black;
+}
+.logo-header img{
+    width: 140px;
+}

@@ -1,0 +1,31 @@
+﻿@model  FileViewModel
+@using Nop.Admin.Models
+@{
+    var defaultGridPageSize = EngineContext.Current.Resolve<Nop.Core.Domain.Common.AdminAreaSettings>().DefaultGridPageSize;
+    var gridPageSizes = EngineContext.Current.Resolve<Nop.Core.Domain.Common.AdminAreaSettings>().GridPageSizes;
+
+    //page title
+    ViewBag.Title = T("Admin.ContentManagement.News.NewsItems").Text;
+    //active menu item (system name)
+    Html.SetActiveMenuItemSystemName("FileManage");
+}
+
+<br />
+
+
+<div class="content-header clearfix">
+    <h1 class="pull-left">
+        @T("Admin.ContentManagement.News.NewsItems")
+    </h1>
+    
+</div>
+
+<div class="content">
+    <div class="form-horizontal">
+        <div class="panel-group">
+
+            @Html.Partial("FilesForm", Model)
+
+        </div>
+    </div>
+</div>

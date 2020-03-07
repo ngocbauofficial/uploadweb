@@ -1,0 +1,29 @@
+﻿@model Nop.Plugin.Widgets.NivoSlider.Models.PublicInfoModel
+@{
+    Layout = "";
+
+
+}
+@using Nop.Web.Framework.UI
+
+@helper RenderSliderLine(string pictureUrl, string text, string link, string dataTransition = "")
+{
+    if (!string.IsNullOrEmpty(pictureUrl))
+    {
+        <li data-thumb="@pictureUrl">
+            <img src="@pictureUrl" alt="" title="@text" class="img-fluid" />
+        </li>
+
+    }
+}
+<div class="bbb container">
+    <div class="clearfix">
+        <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+            @RenderSliderLine(Model.Picture1Url, Model.Text1, Model.Link1)
+            @RenderSliderLine(Model.Picture2Url, Model.Text2, Model.Link2)
+            @RenderSliderLine(Model.Picture3Url, Model.Text3, Model.Link3)
+            @RenderSliderLine(Model.Picture4Url, Model.Text4, Model.Link4)
+            @RenderSliderLine(Model.Picture5Url, Model.Text5, Model.Link5)
+        </ul>
+    </div>
+</div>

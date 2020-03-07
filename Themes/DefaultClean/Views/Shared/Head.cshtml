@@ -1,0 +1,12 @@
+﻿@using Nop.Core;
+@using Nop.Core.Infrastructure
+@using Nop.Web.Framework.Themes
+@using Nop.Web.Framework.UI
+@{  
+    var supportRtl = EngineContext.Current.Resolve<IWorkContext>().WorkingLanguage.Rtl;
+    var themeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+
+    //add browser specific CSS files
+    var browser = Request.Browser;
+    
+}

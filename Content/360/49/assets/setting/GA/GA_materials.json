@@ -1,0 +1,46 @@
+﻿{"MATERIALS":{
+	"EXT": [
+		{
+			"layer" : 0,
+			"material" : "EXT-GRD_GA-BG_A-BC_Z7Q",
+			"items" : ["GRD_GA","BG_A","BC_Z7Q"]
+		},{
+			"layer" : 0,
+			"material" : "EXT-GRD_GA-BG_A-BC_ZYY",
+			"items" : ["GRD_GA","BG_A","BC_ZYY"]
+		},{
+			"layer" : 0,
+			"material" : "EXT-GRD_GA-BG_A-BC_Z2S",
+			"items" : ["GRD_GA","BG_A","BC_Z2S"]
+		},{
+			"layer" : 0,
+			"material" : "EXT-GRD_GA-BG_A-BC_ZYA",
+			"items" : ["GRD_GA","BG_A","BC_ZYA"]
+		},{
+			"layer" : 0,
+			"material" : "EXT-GRD_GA-BG_A-BC_ZHJ",
+			"items" : ["GRD_GA","BG_A","BC_ZHJ"]
+		},{
+			"layer" : 0,
+			"material" : "EXT-GRD_GA-BG_A-BC_ZAM",
+			"items" : ["GRD_GA","BG_A","BC_ZAM"]
+		},{
+			"layer" : 1,
+			"material" : "EXT-WH_003-BG_A",
+			"items" : ["WH_003","BG_A"]
+		},{
+			"layer" : 2,
+			"material" : "EXT-A_001",
+			"items" : ["A_001"]
+		},{
+			"layer" : 3,
+			"material" : "EXT-B_001",
+			"items" : ["B_001"]
+		}],
+	"INT": [
+		{
+			"layer" : 0,
+			"material" : "INT-INTBASE_001-BG_A",
+			"items" : ["INTBASE_001","BG_A"]
+		}]
+}}

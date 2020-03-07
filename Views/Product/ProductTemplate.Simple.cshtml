@@ -1,0 +1,849 @@
+﻿@model ProductDetailsModel
+@using Nop.Core.Domain.Seo;
+@using Nop.Core.Infrastructure;
+@using Nop.Web.Models.Catalog;
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/jquery.magnific-popup.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/swiper.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/popper.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/bootstrap.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/lightslider.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/owl.carousel.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Scripts/jquery.validate.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/main.js", true);
+    Html.AddCssFileParts(ResourceLocation.Head, "~/Themes/DefaultClean/Content/css/sanham.css");
+    Html.AddCssFileParts(ResourceLocation.Head, "~/Themes/DefaultClean/Content/css/fx.css");
+    Html.AddCssFileParts(ResourceLocation.Head, "~/Themes/DefaultClean/Content/css/magnific-popup.css");
+    //title
+    Html.AddTitleParts(!String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
+    //meta
+    Html.AddMetaDescriptionParts(Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+    //page class
+    Html.AppendPageCssClassParts("html-product-details-page");
+    var seoSettings = EngineContext.Current.Resolve<SeoSettings>();
+    //canonical URL
+    if (seoSettings.CanonicalUrlsEnabled)
+    {
+        var productUrl = Url.RouteUrl("Product", new { SeName = Model.SeName }, this.Request.Url.Scheme);
+        Html.AddCanonicalUrlParts(productUrl);
+    }
+    //open graph META tags
+    if (seoSettings.OpenGraphMetaTags)
+    {
+        Html.AddHeadCustomParts("<meta property=\"og:type\" content=\"product\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:title\" content=\"" + Html.Encode(Model.Name) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:description\" content=\"" + Html.Encode(Nop.Core.Html.HtmlHelper.StripTags(Model.MetaDescription)) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:image\" content=\"" + Model.DefaultPictureModel.ImageUrl + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:url\" content=\"" + Request.Url.AbsoluteUri + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:site_name\" content=\"" + Html.Encode(Model.CurrentStoreName) + "\" />");
+    }
+    //Twitter META tags
+    if (seoSettings.TwitterMetaTags)
+    {
+        Html.AddHeadCustomParts("<meta property=\"twitter:card\" content=\"summary\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:site\" content=\"" + Html.Encode(Model.CurrentStoreName) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:title\" content=\"" + Html.Encode(Model.Name) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:description\" content=\"" + Html.Encode(Nop.Core.Html.HtmlHelper.StripTags(Model.MetaDescription)) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:image\" content=\"" + Model.DefaultPictureModel.ImageUrl + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:url\" content=\"" + Request.Url.AbsoluteUri + "\" />");
+    }
+}
+@*
+    <!--product breadcrumb-->
+    @section Breadcrumb
+    {
+        @Html.Partial("_ProductBreadcrumb", Model.Breadcrumb)
+    }
+    @Html.Widget("productdetails_after_breadcrumb", Model.Id)
+    <div class="page product-details-page">
+        <div class="page-body">
+            @Html.Widget("productdetails_top", Model.Id)
+            @using (Html.BeginRouteForm("Product", new { SeName = Model.SeName }, FormMethod.Post, new { id = "product-details-form" }))
+            {
+                <div itemscope itemtype="http://schema.org/Product" data-productid="@Model.Id">
+                    <div class="product-essential">
+                        @Html.Widget("productdetails_before_pictures", Model.Id)
+                        <!--product pictures-->
+                        @Html.Partial("_ProductDetailsPictures", Model)
+                        @Html.Widget("productdetails_after_pictures", Model.Id)
+                        <div class="overview">
+                            @Html.Partial("_Discontinued", Model)
+                            <div class="product-name">
+                                <h1 itemprop="name">
+                                    @Model.Name
+                                </h1>
+                            </div>
+                            @if (!String.IsNullOrEmpty(Model.ShortDescription))
+                            {
+                                <div class="short-description">
+                                    @Html.Raw(Model.ShortDescription)
+                                </div>
+                            }
+                            @Html.Widget("productdetails_overview_top", Model.Id)
+                            <!--product reviews-->
+                            @Html.Partial("_ProductReviewOverview", Model.ProductReviewOverview)
+                            <!--manufacturers-->
+                            @Html.Partial("_ProductManufacturers", Model.ProductManufacturers)
+                            <!--availability-->
+                            @Html.Partial("_Availability", Model)
+                            <!--SKU, MAN, GTIN, vendor-->
+                            @Html.Partial("_SKU_Man_GTIN_Ven", Model)
+                            <!--delivery-->
+                            @Html.Partial("_DeliveryInfo", Model)
+                            <!--sample download-->
+                            @Html.Partial("_DownloadSample", Model)
+                            <!--attributes-->
+                            @{
+                                var dataDictAttributes = new ViewDataDictionary();
+                                dataDictAttributes.TemplateInfo.HtmlFieldPrefix = string.Format("attributes_{0}", Model.Id);
+                                @Html.Partial("_ProductAttributes", Model.ProductAttributes, dataDictAttributes)
+                            }
+                            <!--gift card-->
+                            @{
+                                var dataDictGiftCard = new ViewDataDictionary();
+                                dataDictGiftCard.TemplateInfo.HtmlFieldPrefix = string.Format("giftcard_{0}", Model.Id);
+                                @Html.Partial("_GiftCardInfo", Model.GiftCard, dataDictGiftCard)
+                            }
+                            <!--rental info-->
+                            @{
+                                var dataDictRental = new ViewDataDictionary();
+                                dataDictRental.TemplateInfo.HtmlFieldPrefix = string.Format("rental_{0}", Model.Id);
+                                @Html.Partial("_RentalInfo", Model, dataDictRental)
+                            }
+                            <!--price & add to cart-->
+                            @{
+                                var dataDictPrice = new ViewDataDictionary();
+                                dataDictPrice.TemplateInfo.HtmlFieldPrefix = string.Format("price_{0}", Model.Id);
+                                @Html.Partial("_ProductPrice", Model.ProductPrice, dataDictPrice)
+                                @Html.Partial("_ProductTierPrices", Model.TierPrices)
+                                var dataDictAddToCart = new ViewDataDictionary();
+                                dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = string.Format("addtocart_{0}", Model.Id);
+                                @Html.Partial("_AddToCart", Model.AddToCart, dataDictAddToCart)
+                            }
+                            <!--wishlist, compare, email a friend-->
+                            <div class="overview-buttons">
+                                @Html.Widget("productdetails_inside_overview_buttons_before", Model.Id)
+                                @{
+                                    var dataDictAddToWishlist = new ViewDataDictionary();
+                                    dataDictAddToWishlist.TemplateInfo.HtmlFieldPrefix = string.Format("addtocart_{0}", Model.Id);
+                                    @Html.Partial("_AddToWishlist", Model.AddToCart, dataDictAddToWishlist)
+                                }
+                                @Html.Partial("_CompareProductsButton", Model)
+                                @Html.Partial("_ProductEmailAFriendButton", Model)
+                                @Html.Widget("productdetails_inside_overview_buttons_after", Model.Id)
+                            </div>
+                            @Html.Partial("_ShareButton", Model)
+                            @Html.Widget("productdetails_overview_bottom", Model.Id)
+                        </div>
+                        @if (!String.IsNullOrEmpty(Model.FullDescription))
+                        {
+                            <div class="full-description" itemprop="description">
+                                @Html.Raw(Model.FullDescription)
+                            </div>
+                        }
+                    </div>
+                    @Html.Widget("productdetails_before_collateral", Model.Id)
+                    <div class="product-collateral">
+                        @Html.Partial("_ProductSpecifications", Model.ProductSpecifications)
+                        @Html.Partial("_ProductTags", Model.ProductTags)
+                    </div>
+                    @Html.Action("ProductsAlsoPurchased", "Product", new { productId = Model.Id })
+                    @Html.Action("RelatedProducts", "Product", new { productId = Model.Id })
+                </div>
+            }
+            @Html.Widget("productdetails_bottom", Model.Id)
+        </div>
+    </div>
+*@
+@section Breadcrumb
+        {
+    @Html.Partial("_ProductBreadcrumb", Model.Breadcrumb)
+}
+<div class="slide-background">
+    <div class="video container">
+        <video src="@Model.Video" playsinline loop muted autoplay width="100%" height="50%"> </video>
+    </div>
+</div>
+<section>
+    <div class="navi">
+        <div class="container">
+            <div class="nav-item name-product d-inline-block float-left" style="height: 40px">
+                <span class="nav-link2 active text-uppercase">@Model.Name</span>
+            </div>
+            <!-- <div class="clear"></div> -->
+            <ul class="nav" role="tablist">
+                <li class="nav-item item-switch">
+                    <a href="#1"
+                       class="nav-link item-header header-item-content text-uppercase">
+                        <img src="~/Themes/DefaultClean/Content/images/sanpham/icon-1.png" alt="" class="mt-1 ml-2"> Xem 360
+                    </a>
+                </li>
+                <li class="nav-item item-switch">
+                    <a href="#2"
+                       class="nav-link item-header header-item-content text-uppercase">
+                        <img src="~/Themes/DefaultClean/Content/images/sanpham/icon-2.png" alt="" class="ml-3 mt-1">Phiên bản
+                    </a>
+                </li>
+                <li class="nav-item item-switch">
+                    <a href="#3"
+                       class="nav-link item-header header-item-content text-uppercase">
+                        <img src="~/Themes/DefaultClean/Content/images/sanpham/icon-3.png" alt="" class="mt-1 ml-1 pb-2">Ngoại
+                        thât
+                    </a>
+                </li>
+                <li class="nav-item item-switch">
+                    <a href="#4"
+                       class="nav-link item-header header-item-content text-uppercase">
+                        <img src="~/Themes/DefaultClean/Content/images/sanpham/icon-4.png" alt="" class="ml-2 pb-1">Nội thất
+                    </a>
+                </li>
+                <li class="nav-item item-switch">
+                    <a href="#5"
+                       class="nav-link item-header header-item-content text-uppercase">
+                        <img src="~/Themes/DefaultClean/Content/images/sanpham/icon-5.png" alt="" class="ml-5 pb-1">Thông số kỹ thuật
+                    </a>
+                </li>
+                <li class="nav-item item-switch">
+                    <a href="#6"
+                       class="nav-link item-header header-item-content text-uppercase">
+                        <img src="~/Themes/DefaultClean/Content/images/sanpham/icon-6.png" alt="" class="ml-2">Phụ kiện
+                    </a>
+                </li>
+                <li class="nav-item item-switch">
+                    <a href="#7"
+                       class="nav-link item-header header-item-content text-uppercase">
+                        <img src="~/Themes/DefaultClean/Content/images/sanpham/icon-7.png" alt="" class="ml-3">Bảng giá xe
+                    </a>
+                </li>
+            </ul>
+            <!-- menu-mobile-2 -->
+            <!-- <div class="menu-toggle float-right"><i class="fas fa-bars" aria-hidden="true"></i></div> -->
+        </div>
+    </div>
+    <!-- mb -->
+    <div class="navi-2">
+        <div class="container">
+            <div class="nav-item name-product d-inline-block float-left" style="height: 40px">
+                <span class="nav-link2 active text-uppercase">@Model.Name</span>
+            </div>
+            <div class="clear"></div>
+            <!-- menu-mobile-2 -->
+            <div class="menu-toggle float-right">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </div>
+            <ul class="menu-mb-navi">
+                <li><a href="#1"> <img src="~/Themes/DefaultClean/Content/images/sanpham/icon-1.png" alt=""> Xem 360</a></li>
+                <li><a href="#2"><img src="~/Themes/DefaultClean/Content/images/sanpham/icon-2.png" alt="">Phiên bản</a></li>
+                <li><a href="#3"><img src="~/Themes/DefaultClean/Content/images/sanpham/icon-3.png" alt="">Ngoại thất</a></li>
+                <li><a href="#4"><img src="~/Themes/DefaultClean/Content/images/sanpham/icon-4.png" alt="">Nội thất</a></li>
+                <li><a href="#5"><img src="~/Themes/DefaultClean/Content/images/sanpham/icon-5.png" alt="">Thông số kỹ thuật</a></li>
+                <li><a href="#6"><img src="~/Themes/DefaultClean/Content/images/sanpham/icon-6.png" alt="">Phụ kiện</a></li>
+                <li><a href="#7"><img src="~/Themes/DefaultClean/Content/images/sanpham/icon-7.png" alt="">Bảng giá xe</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section id="1">
+    <!-- <div class="container "> -->
+    <div class="container">
+        <div class="view360ct">
+            <iframe onload="iFrameHeight()" id="blockrandom" name=""
+                    src="~/Content/360/@Model.Id/large/main.html" width="100%" height="800"
+                    scrolling="no" frameborder="0" class="viewfull" __idm_frm__="36" style="height: 850px;"></iframe>
+        </div>
+    </div>
+    <!-- </div> -->
+</section>
+<section id="2">
+    <div class="container">
+        <div class="mode">
+            <h1 class="text-uppercase text-center">Phiên Bản</h1>
+        </div>
+        @foreach (var item in Model.ProductAttributes)
+        {
+            @Html.Raw(item.Description);
+        }
+        <div class="vehicle-call-to-action vehicle-call-to-action-15">
+            <a href="/dang-ky-lai-thu?productid=@Model.Id">
+                <small>Đăng ký </small>
+                Lái thử
+            </a>
+        </div>
+
+
+        @Html.Partial("_DownloadSample", Model)
+    </div>
+</section>
+<section id="3">
+    <div class="container">
+        <div class="exterior ">
+            <h1 class="text-uppercase text-center ">ngoại thất</h1>
+        </div>
+        <div class="row galary">
+            <div class="col-md-6 mt-2 pr-1 mb-1">
+                <div class="popup-gallery">
+                    <a href="@Model.Ngoaithat1.FullSizeImageUrl" title="@Model.TextNgoaithat1">
+                        <img src="@Model.Ngoaithat1.FullSizeImageUrl" class="img-fluid" style="    height: 465px;">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 mt-2 pl-1 mb-1">
+                <div class="popup-gallery">
+                    <a href="@Model.Ngoaithat2.FullSizeImageUrl" title="@Model.TextNgoaithat2">
+                        <img src="@Model.Ngoaithat2.FullSizeImageUrl" class="img-fluid" style="    height: 465px;">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 fix-img pr-0 ">
+                <div class="popup-gallery">
+                    <a href="@Model.Ngoaithat3.FullSizeImageUrl" title="@Model.TextNgoaithat3">
+                        <img src="@Model.Ngoaithat3.FullSizeImageUrl" width="100%" height="100%">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 fix-img pr-0 fix-img-fix">
+                <div class="popup-gallery">
+                    <a href="@Model.Ngoaithat4.FullSizeImageUrl" title="@Model.TextNgoaithat4">
+                        <img src="@Model.Ngoaithat4.FullSizeImageUrl" width="100%" height="100%">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 fix-img fix-fix-img">
+                <div class="popup-gallery">
+                    <a href="@Model.Ngoaithat5.FullSizeImageUrl" title="@Model.TextNgoaithat5">
+                        <img src="@Model.Ngoaithat5.FullSizeImageUrl" width="100%" height="100%">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="vehicle-call-to-action vehicle-call-to-action-15">
+            <a href="/dang-ky-lai-thu?productid=@Model.Id">
+                <small>Đăng ký </small>
+                Lái thử
+            </a>
+        </div>
+        @Html.Partial("_DownloadSample", Model)
+        <div class="clear-float"></div>
+    </div>
+</section>
+<section id="4">
+    <div class="container">
+        <div class="furniture">
+            <h1 class="text-uppercase text-center">nội thất</h1>
+        </div>
+        <div class="test mt-3" style="background-image: url(@Model.NoiThat1.FullSizeImageUrl);">
+            <input type="checkbox" class="input" id="input1" name="inputs">
+            <input type="checkbox" class="input" id="input2" name="inputs">
+            <input type="checkbox" class="input" id="input3" name="inputs">
+            <input type="checkbox" class="input" id="input4" name="inputs">
+            <label for="input1">
+                <div id="b1" class="button">+</div>
+            </label>
+            <label for="input2">
+                <div id="b2" class="button">+</div>
+            </label>
+            <label for="input3">
+                <div id="b3" class="button">+</div>
+            </label>
+            <label for="input4">
+                <div id="b4" class="button">+</div>
+            </label>
+            <!-- hộp số -->
+            <div id="content1" class="content">
+                <div style="text-align: right;">
+                    <label for="input1" class="cross"> <span style="float:left;">Hộp số</span> X</label>
+                </div>
+                <img src="@Model.NoiThat2.FullSizeImageUrl" alt="" class="img-fluid" style="height:88%;">
+            </div>
+            <!-- máy lạnh -->
+            <div id="content2" class="content">
+                <div style="text-align: right;">
+                    <label for="input2" class="cross"><span style="float:left;">Máy lạnh</span>X</label>
+                </div>
+                <img src="@Model.NoiThat3.FullSizeImageUrl" alt="" class="img-fluid"
+                     style="height:88%;">
+            </div>
+            <!-- ghế -->
+            <div id="content3" class="content">
+                <div style="text-align: right;">
+                    <label for="input3" class="cross"><span style="float:left;">gạt số</span>X</label>
+                </div>
+                <img src="@Model.NoiThat4.FullSizeImageUrl" alt="" class="img-fluid"
+                     style="height:88%;">
+            </div>
+            <!-- gạt số -->
+            <div id="content4" class="content">
+                <div style="text-align: right;">
+                    <label for="input4" class="cross"><span style="float:left;">Ghế Trước</span>X</label>
+                </div>
+                <img src="@Model.NoiThat5.FullSizeImageUrl" alt="" class="img-fluid"
+                     style="height:88%;">
+            </div>
+        </div>
+        <!-- galarymb -->
+        <div class="galary-mobile-2 mt-3">
+            <div class="owl-carousel galary-mb-mb owl-theme">
+                <div class="item">
+                    <div class="popup-gallery">
+                        <a href="@Model.NoiThat1.FullSizeImageUrl"
+                           title="@Model.TextNoiThat1">
+                            <img src="@Model.NoiThat1.FullSizeImageUrl" width="100%"
+                                 height="100%">
+                        </a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="popup-gallery">
+                        <a href="@Model.NoiThat2.FullSizeImageUrl" title="@Model.TextNoiThat2">
+                            <img src="@Model.NoiThat2.FullSizeImageUrl" width="100%"
+                                 height="100%">
+                        </a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="popup-gallery">
+                        <a href="@Model.NoiThat3.FullSizeImageUrl" title="@Model.TextNoiThat3">
+                            <img src="@Model.NoiThat3.FullSizeImageUrl" width="100%" height="100%">
+                        </a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="popup-gallery">
+                        <a href="@Model.NoiThat4.FullSizeImageUrl"
+                           title="@Model.TextNoiThat4">
+                            <img src="@Model.NoiThat4.FullSizeImageUrl" width="100%"
+                                 height="100%">
+                        </a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="popup-gallery">
+                        <a href="@Model.NoiThat5.FullSizeImageUrl"
+                           title="@Model.TextNoiThat5">
+                            <img src="@Model.NoiThat5.FullSizeImageUrl" width="100%"
+                                 height="100%">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="vehicle-call-to-action vehicle-call-to-action-15">
+            <a href="/dang-ky-lai-thu?productid=@Model.Id">
+                <small>Đăng ký </small>
+                Lái thử
+            </a>
+        </div>
+        @Html.Partial("_DownloadSample", Model)
+        <div class="clear-float"></div>
+    </div>
+</section>
+@foreach (var item in Model.ProductSpecifications.Where(x => x.SpecificationAttributeId == 6))
+{
+    <section class="container" id="5">
+        <div class="specifications">
+            <h1 class="text-uppercase text-center"> @Html.Raw(item.SpecificationAttributeName) </h1>
+        </div>
+        <div>
+            @Html.Raw(item.ValueRaw)
+        </div>
+        <div class="vehicle-call-to-action vehicle-call-to-action-15">
+            <a href="/dang-ky-lai-thu?productid=@Model.Id">
+                <small>Đăng ký </small>
+                Lái thử
+            </a>
+        </div>
+        @Html.Partial("_DownloadSample", Model)
+    </section>
+}
+<!-- end -->
+<section id="6">
+    <div class="container phu-kien">
+        <div class="exterior ">
+            <h1 class="text-uppercase text-center ">Phụ Kiện</h1>
+        </div>
+        <div class="fix-final mt-4 m-0 row p-0">
+            <div class="col-md-4 test-flex fix-res pl-0 pr-0">
+                <div class="popup-gallery ">
+                    <a href="@Model.PhuKien1.FullSizeImageUrl" title="@Model.TextPhuKien1"><img src="@Model.PhuKien1.FullSizeImageUrl" class="img-fluid" style="height: 100%;object-fit: cover;object-position: center"></a>
+                </div>
+            </div>
+            <div class="col-md-8 pl-0 test-flex-1 pr-0">
+                <div class="row m-0 p-0">
+                    <div class="col-md-6 res p-0 ">
+                        <div class="popup-gallery text-right">
+                            <a href="@Model.PhuKien2.FullSizeImageUrl" title="@Model.TextPhuKien2"><img src="@Model.PhuKien2.FullSizeImageUrl" class="img-fluid"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 res p-0 ">
+                        <div class="popup-gallery text-right">
+                            <a href="@Model.PhuKien3.FullSizeImageUrl" title="@Model.TextPhuKien3"><img src="@Model.PhuKien3.FullSizeImageUrl" class="img-fluid"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 res p-0  ">
+                        <div class="popup-gallery text-right">
+                            <a href="@Model.PhuKien4.FullSizeImageUrl" title="@Model.TextPhuKien4"><img src="@Model.PhuKien4.FullSizeImageUrl" class="img-fluid"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 res p-0 ">
+                        <div class="popup-gallery text-right">
+                            <a href="@Model.PhuKien5.FullSizeImageUrl" title="@Model.TextPhuKien5"><img src="@Model.PhuKien5.FullSizeImageUrl" class="img-fluid"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="galary-mobile">
+            <div class="owl-carousel galary-mb-mb owl-theme owl-loaded owl-drag">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s;">
+                        <div class="owl-item">
+                            <div class="item">
+                                <div class="popup-gallery">
+                                    <a href="@Model.PhuKien1.FullSizeImageUrl" title="@Model.TextPhuKien1"><img src="@Model.PhuKien1.FullSizeImageUrl" width="100%" height="100%"></a>
+                                </div>
+                            </div>
+                        </div><div class="owl-item">
+                            <div class="item">
+                                <div class="popup-gallery">
+                                    <a href="@Model.PhuKien2.FullSizeImageUrl" title="@Model.TextPhuKien2"><img src="@Model.PhuKien2.FullSizeImageUrl" width="100%" height="100%"></a>
+                                </div>
+                            </div>
+                        </div><div class="owl-item">
+                            <div class="item">
+                                <div class="popup-gallery">
+                                    <a href="@Model.PhuKien3.FullSizeImageUrl" title="@Model.TextPhuKien3"><img src="@Model.PhuKien3.FullSizeImageUrl" width="100%" height="100%"></a>
+                                </div>
+                            </div>
+                        </div><div class="owl-item">
+                            <div class="item">
+                                <div class="popup-gallery">
+                                    <a href="@Model.PhuKien4.FullSizeImageUrl" title="@Model.TextPhuKien4"><img src="@Model.PhuKien4.FullSizeImageUrl" width="100%" height="100%"></a>
+                                </div>
+                            </div>
+                        </div><div class="owl-item">
+                            <div class="item">
+                                <div class="popup-gallery">
+                                    <a href="@Model.PhuKien5.FullSizeImageUrl" title="@Model.TextPhuKien5"><img src="@Model.PhuKien5.FullSizeImageUrl" width="100%" height="100%"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev disabled"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next disabled"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="7" class="bang-gia-section">
+    <div class="container">
+        <div class="price-list ">
+            <h1 class="text-uppercase text-center">Bảng giá xe</h1>
+        </div>
+        @{Html.RenderAction("_GetTopic", "Topic", new { topicId = 15 });}
+    </div>
+</section>
+@Html.Action("RelatedProducts", "Product", new { productId = Model.Id })
+
+<div class="modal" id="myModalform" style="z-index:999999999">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border: 2px solid #09334c;border-radius: 15px;">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <span class="modal-title">Đăng ký nhận thông tin</span>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="#" method="post" id="form-sendproduct">
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="form-group">
+                                <label class="col-sm-3">Họ Và Tên</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="name" name="name" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label class="col-sm-3">Giới Tính</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="gender" name="gender">
+                                        <option value="Ông">Nam</option>
+                                        <option value="Bà">Nữ</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="col-sm-3">Email</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="email" name="email" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="col-sm-3">Điện Thoại</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="phone" name="phone" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                        <style>
+                            .error {
+                                color: red;
+                            }
+
+                            .checkbox-time + label {
+                                font-weight: 400;
+                                position: relative;
+                                padding-left: 15px;
+                                cursor: pointer;
+                                display: inline-block;
+                                height: 16px;
+                                margin-bottom: 0px;
+                                line-height: 25px;
+                            }
+
+                            .checkbox-time:checked, .checkbox-time:not(:checked) {
+                                position: absolute;
+                                left: -9999px;
+                                opacity: 0;
+                            }
+
+                            .checkbox-time {
+                                box-sizing: border-box;
+                                padding: 0;
+                            }
+
+                                .checkbox-time + label:before, .checkbox-time:not(.filled-in) + label:after {
+                                    content: '';
+                                    position: absolute;
+                                    top: 5px;
+                                    left: 0;
+                                    width: 15px;
+                                    height: 15px;
+                                    z-index: 0;
+                                    border: 2px solid #2c545c;
+                                    border-radius: 1px;
+                                    margin-top: 2px;
+                                    -webkit-transition: .2s;
+                                    -o-transition: .2s;
+                                    transition: .2s;
+                                }
+
+                                .checkbox-time:not(.filled-in) + label:after {
+                                    border: 0;
+                                    -webkit-transform: scale(0);
+                                    -ms-transform: scale(0);
+                                    transform: scale(0);
+                                }
+
+                                .checkbox-time:checked + label:before {
+                                    top: -4px;
+                                    left: -5px;
+                                    width: 10px;
+                                    height: 19px;
+                                    border-top: 2px solid transparent;
+                                    border-left: 2px solid transparent;
+                                    border-right: 2px solid #9f2a2a;
+                                    border-bottom: 2px solid #9f2a2a;
+                                    -webkit-transform: rotate(40deg);
+                                    -ms-transform: rotate(40deg);
+                                    transform: rotate(40deg);
+                                    -webkit-transform-origin: 100% 100%;
+                                    -ms-transform-origin: 100% 100%;
+                                    transform-origin: 100% 100%;
+                                }
+                        </style>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="col-sm-3">Bạn Dự Tính Mua Xe Khi Nào</label>
+                                <div class="col-sm-9">
+                                    <label class="checkbox-inline"><input type="checkbox" class="checkbox-time" name="time" id="time1" value="tháng này"><label for="time1"></label>Tháng Này</label>
+                                    <label class="checkbox-inline"><input type="checkbox" class="checkbox-time" name="time" id="time2" value="tháng sau"><label for="time2"></label>Tháng Sau</label>
+                                    <label class="checkbox-inline"><input type="checkbox" class="checkbox-time" name="time" id="time3" value="chưa mưa"><label for="time3"></label>Chưa Mua</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="submit" id="clickformsendinfo" class="btn btn-success fx-btn-wave fx-btn-3d">Gửi</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+        $("input:checkbox").on('click', function () {
+            // in the handler, 'this' refers to the box clicked on
+            var $box = $(this);
+            if ($box.is(":checked")) {
+                // the name of the box is retrieved using the .attr() method
+                // as it is assumed and expected to be immutable
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                // the checked state of the group/box on the other hand will change
+                // and the current value is retrieved using .prop() method
+                $(group).prop("checked", false);
+                $box.prop("checked", true);
+            } else {
+                $box.prop("checked", false);
+            }
+        });
+          $.validator.addMethod("cRequired", $.validator.methods.required,"Thông tin này là bắc buộc");
+
+    $(function () {
+        $('#form-sendproduct').validate({
+            rules: {
+                name: { // registerdate
+                    cRequired: true,
+                },
+                gender: { // registerdate
+                    cRequired: true,
+                },
+                email: { // registerdate
+                    cRequired: true,
+                },
+                phone: { // registerdate
+                    cRequired: true,
+                },
+                time: { // registerdate
+                    cRequired: true,
+                },
+            },
+            errorElement: 'label',
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+
+        });
+    });
+        //form popup
+        $(document).ready(function () {
+            if ($.cookie('form') == null) {
+                setTimeout(function () {
+                    $('#myModalform').modal('show');
+                    $(".modal-backdrop").remove();
+                },
+                    10000);
+                $.cookie('form', '7');
+            }
+        });
+        $('#clickformsendinfo').click(function () {
+            var $form = $('#form-sendproduct');
+
+            // check if the input is valid
+            if (!$form.valid()) return false;
+            $.ajax({
+                type: 'POST',
+                url: '/Common/SendInfo',
+                data: $('#form-sendproduct').serialize(),
+                success: function (data) {
+                    if (data == true) {
+                        $('#myModalform').modal('hide');
+                        alert('Gửi đăng ký nhận thông tin thành công !')
+                    }
+                }
+            });
+            })
+
+    </script>
+    <script>
+        $('.new-sp').owlCarousel({
+            loop: false,
+            margin: 10,
+            nav: true,
+            // autoplay:true,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links
+            $("a").on('click', function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+                    // Store hash
+                    var hash = this.hash;
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 500, function () {
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        var noHashURL = window.location.href.replace(/#.*$/, '');
+                        window.history.replaceState('', document.title, noHashURL)
+                    });
+                } // End if
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.popup-gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                tLoading: 'Loading image #%curr%...',
+                mainClass: 'mfp-img-mobile',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+                },
+                image: {
+                    tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+
+                }
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            setIFrameSize();
+            $(window).resize(function () {
+                setIFrameSize();
+            });
+        });
+        function setIFrameSize() {
+            var ogWidth = 700;
+            var ogHeight = 600;
+            var ogRatio = ogWidth / ogHeight;
+            var windowWidth = $(window).width();
+            if (windowWidth < 480) {
+                var parentDivWidth = $(".iframe-class").parent().width();
+                var newHeight = (parentDivWidth / ogRatio);
+                $(".iframe-class").addClass("iframe-class-resize");
+                $(".iframe-class-resize").css("width", parentDivWidth);
+                $(".iframe-class-resize").css("height", newHeight);
+            } else {
+                $(".iframe-class").removeClass("iframe-class-resize").css({ width: '', height: '' });
+            }
+        }
+    </script>
+}

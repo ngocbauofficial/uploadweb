@@ -1,0 +1,117 @@
+﻿@model TopMenuModel
+@using Nop.Web.Models.Catalog;
+@{
+    var rootCategories = Model.Categories.Where(x => x.IncludeInTopMenu).ToList();
+}
+<nav id="menu">
+    <ul>
+        @foreach (var category in rootCategories)
+        {
+            <li>
+                <span>@category.Name</span>
+                <ul>
+                    @{ Html.RenderAction("CategoryHomePageProducts", new { categoryid = category.Id }); }
+                </ul>
+            </li>
+        }
+        <li>
+            <span>Mua xe</span>
+            <ul>
+                <li><a href="@Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("Bang-Gia-Xe-O-To") })"> bảng giá xe</a></li>
+                <li><a href="@Url.RouteUrl("DuToanChiPhi")"> dự toán chi phí</a></li>
+                <li><a href="@Url.RouteUrl("DangKyLaiThu")">đăng ký lái thử</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>Dịch vụ</span>
+            <ul>
+                <li><a href="@Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("PhuTung") })">phụ tùng</a></li>
+                <li><a href="/bao-hanh">bảo hành</a></li>
+                <li><a href="/hoi-dap">hỏi đáp</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>Công nghệ</span>
+            <ul>
+                <li><a href="/kien-thuc-suzuki">kiến thức suzuki</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>Lịch sử suzuki</span>
+            <ul>
+                <li><a href="/lich-su-suzuki">Lịch sử suzuki</a></li>
+                <li><a href="/cau-chuyen-suzuki">Câu Chuyện Suzuki</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>Tin Tức </span>
+            <ul>
+                <li><a href="@Url.RouteUrl("NewsSuzuki")">Tin Suzuki</a></li>
+                <li><a href="@Url.RouteUrl("NewsPromotionsSuzuki")">Tin Khuyến Mãi</a></li>
+            </ul>
+        </li>
+      
+        <li>
+            <a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a>
+        </li>
+    </ul>
+</nav>
+<ul>
+    @foreach (var category in rootCategories)
+    {
+        <li class="aaa">
+            <a href="#">sản phẩm <i class="fas fa-angle-down"></i></a>
+            <div class="menu-lv2">
+                <ul class="lv2">
+                    @{ Html.RenderAction("CategoryHomePageProducts", new { categoryid = category.Id }); }
+                </ul>
+            </div>
+        </li>
+    }
+    <li class="menu-2 aaa">
+        <a href="#">mua xe <i class="fas fa-angle-down"></i></a>
+        <ul class="sub-lv2">
+            <li><a href="@Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("Bang-Gia-Xe-O-To") })">bảng giá xe</a></li>
+            <li><a href="@Url.RouteUrl("DuToanChiPhi")">dự toán chi phí</a></li>
+            <li><a href="@Url.RouteUrl("DangKyLaiThu")">đăng ký lái thử</a></li>
+        </ul>
+    </li>
+    <li class="menu-2 aaa">
+        <a href="#">dịch vụ <i class="fas fa-angle-down"></i></a>
+        <ul class="sub-lv2">
+            <li><a href="@Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("PhuTung") })">phụ tùng</a></li>
+            <li><a href="/bao-hanh">bảo hành</a></li>
+            <li><a href="/hoi-dap">hỏi đáp</a></li>
+        </ul>
+    </li>
+    <li class="menu-2 aaa">
+        <a href="#">công nghệ <i class="fas fa-angle-down"></i></a>
+        <ul class="sub-lv2">
+            <li><a href="/kien-thuc-suzuki">kiến thức suzuki</a></li>
+        </ul>
+    </li>
+    <li class="menu-2 aaa">
+        <a href="/lich-su-suzuki">lịch sử suzuki <i class="fas fa-angle-down"></i></a>
+        <ul class="sub-lv2">
+            <li><a href="/cau-chuyen-suzuki">câu chuyện suzuki</a></li>
+        </ul>
+    </li>
+
+   
+ 
+    <li class="menu-2 aaa">
+        <a href="@Url.RouteUrl("NewsArchive")">Tin Tức  <i class="fas fa-angle-down"></i></a>
+        <ul class="sub-lv2">
+            <li><a href="@Url.RouteUrl("NewsSuzuki")">Tin Suzuki</a></li>
+            <li><a href="@Url.RouteUrl("NewsPromotionsSuzuki")">Tin Khuyến Mãi</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a>
+    </li>
+</ul>
+<div class="main-header">
+    <div class="btn-menu">
+        <a href="#menu"><span></span></a>
+    </div>
+</div>

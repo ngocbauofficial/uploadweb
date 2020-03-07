@@ -1,0 +1,81 @@
+﻿@model EstimateModel
+
+@Html.ValidationSummary(false)
+
+@Html.HiddenFor(model => model.StateId)
+
+
+@if (ViewBag.RefreshPage == true)
+{
+    <script type="text/javascript">
+        try {window.opener.document.forms['@(ViewBag.formId)'].@(ViewBag.btnId).click();}
+        catch (e){}
+        window.close();
+    </script>
+}
+
+<div class="content">
+    <div class="form-horizontal">
+        <div class="panel-group">
+            <div class="panel panel-default">
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.LePhiTruocBa)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.LePhiTruocBa)
+                        @Html.ValidationMessageFor(model => model.LePhiTruocBa)
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopLabelFor(model => model.BienSo)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.NopEditorFor(model => model.BienSo)
+                            @Html.ValidationMessageFor(model => model.BienSo)
+                        </div>
+                    </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.PhiKiemDinh)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.PhiKiemDinh)
+                        @Html.ValidationMessageFor(model => model.PhiKiemDinh)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.PhiBHVC)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.PhiBHVC)
+                        @Html.ValidationMessageFor(model => model.PhiBHVC)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.PhiDuongBo)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.PhiDuongBo)
+                        @Html.ValidationMessageFor(model => model.PhiDuongBo)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.BaoHiemTNDS)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.BaoHiemTNDS)
+                        @Html.ValidationMessageFor(model => model.BaoHiemTNDS)
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,11 @@
+﻿@model Nop.Web.Models.CostEstimates.EstimateModel
+
+<p class="price">Giá (VNĐ) <span>@String.Format("{0:0,0}", @Model.Gia)</span></p>
+<p>Phí trước bạ (<strong>@Model.LePhiTruocBa%</strong>) <span>@String.Format("{0:0,0}", @Model.Gia * Model.LePhiTruocBa / 100)</span></p>
+<p>Tiền Biển Số <span>@String.Format("{0:0,0}", @Model.BienSo)</span></p>
+<p>Phí đăng kiểm <span>@String.Format("{0:0,0}", @Model.PhiKiemDinh)</span></p>
+<p>Bảo hiểm TNDS <span>@String.Format("{0:0,0}", @Model.BaoHiemTNDS)</span></p>
+<p>Phí đường bộ <span>@String.Format("{0:0,0}", @Model.PhiDuongBo)</span></p>
+<p>Bảo hiểm Vật chất (<strong>@Model.PhiBHVC%</strong>) <span>@String.Format("{0:0,0}", @Model.Gia*Model.PhiBHVC/100)</span></p>
+<p class="fee">Tổng chi phí đăng ký <span>@String.Format("{0:0,0}", @Model.TongChiPhi)</span></p>
+<p class="total">TỔNG CỘNG <span>@String.Format("{0:0,0}", @Model.TongCong)</span></p>

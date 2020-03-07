@@ -1,0 +1,247 @@
+@model ProductDetailsModel
+@using Nop.Core.Domain.Seo;
+@using Nop.Core.Infrastructure;
+@using Nop.Web.Models.Catalog;
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/swiper.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/lightslider.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/owl.carousel.min.js", true);
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/main.js", true);
+    //title
+    Html.AddTitleParts(!String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
+    //meta
+    Html.AddMetaDescriptionParts(Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+    //page class
+    Html.AppendPageCssClassParts("html-product-details-page");
+    var seoSettings = EngineContext.Current.Resolve<SeoSettings>();
+    //canonical URL
+    if (seoSettings.CanonicalUrlsEnabled)
+    {
+        var productUrl = Url.RouteUrl("Product", new { SeName = Model.SeName }, this.Request.Url.Scheme);
+        Html.AddCanonicalUrlParts(productUrl);
+    }
+    //open graph META tags
+    if (seoSettings.OpenGraphMetaTags)
+    {
+        Html.AddHeadCustomParts("<meta property=\"og:type\" content=\"product\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:title\" content=\"" + Html.Encode(Model.Name) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:description\" content=\"" + Html.Encode(Nop.Core.Html.HtmlHelper.StripTags(Model.MetaDescription)) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:image\" content=\"" + Model.DefaultPictureModel.ImageUrl + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:url\" content=\"" + Request.Url.AbsoluteUri + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:site_name\" content=\"" + Html.Encode(Model.CurrentStoreName) + "\" />");
+    }
+    //Twitter META tags
+    if (seoSettings.TwitterMetaTags)
+    {
+        Html.AddHeadCustomParts("<meta property=\"twitter:card\" content=\"summary\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:site\" content=\"" + Html.Encode(Model.CurrentStoreName) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:title\" content=\"" + Html.Encode(Model.Name) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:description\" content=\"" + Html.Encode(Nop.Core.Html.HtmlHelper.StripTags(Model.MetaDescription)) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:image\" content=\"" + Model.DefaultPictureModel.ImageUrl + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:url\" content=\"" + Request.Url.AbsoluteUri + "\" />");
+    }
+}
+<!--product breadcrumb-->
+@section Breadcrumb
+{
+    @Html.Partial("_ProductBreadcrumb", Model.Breadcrumb)
+}
+@Html.Widget("productdetails_after_breadcrumb", Model.Id)
+<div class="page product-details-page">
+    @Html.Raw(Model.FullDescription)
+</div>
+@section header
+{
+    <style>
+        .uk-switcher{
+            overflow:scroll;
+        }
+    </style>
+    @if (Model.Id == 51)
+    {
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+      
+    <link href="Content/carry/sppagebuilder.css" rel="stylesheet"
+          type="text/css" />
+    <link href="Content/carry/sppagecontainer.css" rel="stylesheet"
+          type="text/css" />
+    <link href="Content/carry/magnific-popup.css" rel="stylesheet"
+          type="text/css" />
+        <link href="Content/carry/63b4b252ff7616b04cacc8b6f562377a.css"
+              rel="stylesheet" type="text/css" />
+        <link href="Content/carry/91acceb67ecb8c2a4fadd08f72ce35ef.css"
+              rel="stylesheet" type="text/css" />
+        <link href="Content/carry/b773029774dcfbe3874f34ab08e1332a.css"
+              rel="stylesheet" type="text/css" />
+    <link href="Content/carry/2e13973836d0008be035197cf1efa54c.css"
+          rel="stylesheet" type="text/css" />
+    <link href="Content/carry/beed13dfb875c96f97a3470558f70c45.css"
+          rel="stylesheet" type="text/css" />
+    <link href="Content/carry/maximenuckmobile.css"
+          rel="stylesheet" type="text/css" />
+    <link href="Content/carry/maximenuck.css"
+          rel="stylesheet" type="text/css" />
+
+    <link href="Content/carry/beez3-position1.css"
+          rel="stylesheet" type="text/css" />
+    <link href="Content/carry/maximenuresponsiveck.css" rel="stylesheet"
+          type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400|Pacifico:400|Average:400|Open+Sans:400|Raleway:400|Bebas:400&amp;subset=latin"
+          rel="stylesheet" type="text/css" />
+
+        <script src="media/system/js/core557c.js?5685c1e109510f1aa1514c60372ed09b" type="text/javascript"></script>
+     
+        <script src="media/jui/js/jquery-migrate.min557c.js?5685c1e109510f1aa1514c60372ed09b"
+                type="text/javascript"></script>
+    <script src="Content/carry/parallax.min.js"
+            type="text/javascript"></script>
+    <script src="Content/carry/sppagebuilder.js"
+            type="text/javascript"></script>
+    <script src="Content/carry/jquery.magnific-popup.min.js"
+            type="text/javascript"></script>
+    <script src="Content/carry/maximenuckmobile.js"
+            type="text/javascript"></script>
+        <script src="media/jui/js/jquery.ui.core.min557c.js?5685c1e109510f1aa1514c60372ed09b"
+                type="text/javascript"></script>
+    <script src="Content/carry/b27ea478486a536449844669c31f0080.js"
+            type="text/javascript"></script>
+        <script src="media/widgetkit/uikit2-0bd93abb.js" type="text/javascript"></script>
+        <script src="media/widgetkit/wk-scripts-4815056a.js" type="text/javascript"></script>
+     
+        <link rel="apple-touch-icon-precomposed" href="templates/suzukivietnam/apple_touch_icon.png">
+        <link rel="stylesheet" href="templates/suzukivietnam/styles/Suzuki%202/css/bootstrap.css">
+        <link rel="stylesheet" href="templates/suzukivietnam/styles/Suzuki%202/css/theme.css">
+        <link rel="stylesheet" href="templates/suzukivietnam/styles/Suzuki%202/css/custom.css">
+        <script src="templates/suzukivietnam/warp/vendor/uikit/js/uikit.js"></script>
+        
+        <script src="templates/suzukivietnam/warp/vendor/uikit/js/components/tooltip.js"></script>
+        <script src="templates/suzukivietnam/warp/js/social.js"></script>
+        <script src="templates/suzukivietnam/js/theme.js"></script>
+        <script src="templates/suzukivietnam/js/parallax.js"></script>
+    }
+    @if (Model.Id == 50)
+    {
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  
+    <link href="Content/carry/sppagebuilder.css" rel="stylesheet"
+          type="text/css" />
+    <link href="Content/carry/sppagecontainer.css" rel="stylesheet"
+          type="text/css" />
+    <link href="Content/carry/magnific-popup.css" rel="stylesheet"
+          type="text/css" />
+        <link href="Content/carry/41effcb45eecb3187706f84203b32bd7.css"
+              rel="stylesheet" type="text/css" />
+        <link href="Content/carry/a1d33ae602fced907c671e32cb930085.css"
+              rel="stylesheet" type="text/css" />
+        <link href="Content/carry/379fe1e5240531b4a10b67e1162f2063.css"
+              rel="stylesheet" type="text/css" />
+        <link href="Content/carry/c134bd0d6b6ac471b17149fea349273c.css"
+              rel="stylesheet" type="text/css" />
+        <link href="Content/carry/a3acd62b2a0d84c2c571eed893ab8eff.css"
+              rel="stylesheet" type="text/css" />
+        <link href="Content/carry/1f5651676c2f4772571d619677522b82.css"
+              rel="stylesheet" type="text/css" />
+    <link href="Content/carry/maximenuckmobile.css"
+          rel="stylesheet" type="text/css" />
+    <link href="Content/carry/maximenuck.css"
+          rel="stylesheet" type="text/css" />
+
+    <link href="Content/carry/beez3-position1.css"
+          rel="stylesheet" type="text/css" />
+    <link href="Content/carry/maximenuresponsiveck.css" rel="stylesheet"
+          type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400|Pacifico:400|Average:400|Open+Sans:400|Raleway:400|Bebas:400&amp;subset=latin"
+          rel="stylesheet" type="text/css" />
+      
+        <script src="media/system/js/core557c.js?5685c1e109510f1aa1514c60372ed09b" type="text/javascript"></script>
+
+      
+        <script src="media/jui/js/jquery-migrate.min557c.js?5685c1e109510f1aa1514c60372ed09b"
+                type="text/javascript"></script>
+    <script src="Content/carry/parallax.min.js"
+            type="text/javascript"></script>
+    <script src="Content/carry/sppagebuilder.js"
+            type="text/javascript"></script>
+    <script src="Content/carry/jquery.magnific-popup.min.js"
+            type="text/javascript"></script>
+    <script src="Content/carry/maximenuckmobile.js"
+            type="text/javascript"></script>
+        <script src=" media/jui/js/jquery.ui.core.min557c.js?5685c1e109510f1aa1514c60372ed09b"
+                type="text/javascript"></script>
+    <script src="Content/carry//b27ea478486a536449844669c31f0080.js"
+            type="text/javascript"></script>
+        <script src=" media/widgetkit/uikit2-0bd93abb.js" type="text/javascript"></script>
+        <script src=" media/widgetkit/wk-scripts-4815056a.js" type="text/javascript"></script>
+      
+        <link rel="apple-touch-icon-precomposed" href=" templates/suzukivietnam/apple_touch_icon.png">
+        <link rel="stylesheet" href=" templates/suzukivietnam/styles/Suzuki%202/css/bootstrap.css">
+        <link rel="stylesheet" href=" templates/suzukivietnam/styles/Suzuki%202/css/theme.css">
+        <link rel="stylesheet" href=" templates/suzukivietnam/styles/Suzuki%202/css/custom.css">
+        <script src=" templates/suzukivietnam/warp/vendor/uikit/js/uikit.js"></script>
+        <script src=" templates/suzukivietnam/warp/vendor/uikit/js/components/autocomplete.js"></script>
+        <script src=" templates/suzukivietnam/warp/vendor/uikit/js/components/search.js"></script>
+        <script src=" templates/suzukivietnam/warp/vendor/uikit/js/components/tooltip.js"></script>
+        <script src=" templates/suzukivietnam/warp/js/social.js"></script>
+        <script src=" templates/suzukivietnam/js/theme.js"></script>
+        <script src=" templates/suzukivietnam/js/parallax.js"></script>
+    }
+    @if (Model.Id == 52)
+    {
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="Content/carry/animate.min.css" rel="stylesheet"
+              type="text/css" />
+    <link href="Content/carry/sppagebuilder.css"
+          rel="stylesheet" type="text/css" />
+    <link href="Content/carry/sppagecontainer.css"
+          rel="stylesheet" type="text/css" />
+    <link href="Content/carry/magnific-popup.css"
+          rel="stylesheet" type="text/css" />
+    <link href="Content/carry/a5b2cb37555ae7d3b087be312023ebae.css"
+          rel="stylesheet" type="text/css" />
+    <link href="Content/carry/maximenuckmobile.css"
+          rel="stylesheet" type="text/css" />
+    <link href="Content/carry/maximenuck.css"
+          rel="stylesheet" type="text/css" />
+
+    <link href="Content/carry/beez3-position1.css"
+          rel="stylesheet" type="text/css" />
+    <link href="Content/carry/maximenuresponsiveck.css" rel="stylesheet"
+          type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400|Pacifico:400|Average:400|Open+Sans:400|Raleway:400|Bebas:400&amp;subset=latin"
+              rel="stylesheet" type="text/css" />
+     
+        <script src=" media/system/js/core557c.js?5685c1e109510f1aa1514c60372ed09b"
+                type="text/javascript"></script>
+      
+      
+        <script src=" media/jui/js/jquery-migrate.min557c.js?5685c1e109510f1aa1514c60372ed09b"
+                type="text/javascript"></script>
+    <script src="Content/carry/parallax.min.js"
+            type="text/javascript"></script>
+    <script src="Content/carry/sppagebuilder.js"
+            type="text/javascript"></script>
+    <script src="Content/carry/jquery.magnific-popup.min.js"
+            type="text/javascript"></script>
+    <script src="Content/carry/maximenuckmobile.js"
+            type="text/javascript"></script>
+        <script src=" media/jui/js/jquery.ui.core.min557c.js?5685c1e109510f1aa1514c60372ed09b"
+                type="text/javascript"></script>
+    <script src="Content/carry/1c14f214cace9eda9a86aa3dc5443424.js"
+            type="text/javascript"></script>
+        <script src=" media/widgetkit/uikit2-0bd93abb.js" type="text/javascript"></script>
+        <script src=" media/widgetkit/wk-scripts-4815056a.js" type="text/javascript"></script>
+        <link rel="apple-touch-icon-precomposed" href=" templates/suzukivietnam/apple_touch_icon.png">
+        <link rel="stylesheet" href=" templates/suzukivietnam/styles/Suzuki%202/css/bootstrap.css">
+        <link rel="stylesheet" href=" templates/suzukivietnam/styles/Suzuki%202/css/theme.css">
+        <link rel="stylesheet" href=" templates/suzukivietnam/styles/Suzuki%202/css/custom.css">
+        <script src=" templates/suzukivietnam/warp/vendor/uikit/js/uikit.js"></script>
+        <script src=" templates/suzukivietnam/warp/vendor/uikit/js/components/autocomplete.js"></script>
+        <script src=" templates/suzukivietnam/warp/vendor/uikit/js/components/search.js"></script>
+        <script src=" templates/suzukivietnam/warp/vendor/uikit/js/components/tooltip.js"></script>
+        <script src=" templates/suzukivietnam/warp/js/social.js"></script>
+        <script src=" templates/suzukivietnam/js/theme.js"></script>
+        <script src=" templates/suzukivietnam/js/parallax.js"></script>
+    }
+}

@@ -1,0 +1,9 @@
+﻿<header>
+    @Html.Widget("header")
+            @Html.Widget("header_selectors")
+    @Html.Action("Logo", "Common")
+       <nav>
+           @Html.Action("HeaderLinks", "Common")
+           @Html.Action("TopMenu", "Catalog")
+       </nav>
+   </header>

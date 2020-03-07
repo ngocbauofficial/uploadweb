@@ -1,0 +1,370 @@
+﻿{"ITEMS":[{
+		"category_id" : "BACKGROUND",
+		"categoryLabel" : "Background",
+		"groups" : [{
+				"group_id" : "BG",
+				"type" : "radio",
+				"items" : [{
+					"item_id" : "BG_A",
+					"label" : "Background",
+					"checked" : true,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "BG_A",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+			}]
+		}]
+	},{
+		"category_id" : "BODYCOLOR",
+		"categoryLabel" : "Bodycolor",
+		"groups" : [{
+				"group_id" : "BC",
+				"type" : "radio",
+				"items" : [{
+					"item_id" : "BC_ZQK",
+					"label" : "Dignity Brown Pearl Metallic",
+					"checked" : true,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "BC_ZQK",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+					},{
+					"item_id" : "BC_ZQL",
+					"label" : "Sangria Red Pearl",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "BC_ZQL",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+					},{
+					"item_id" : "BC_ZQM",
+					"label" : "Snow White Pearl 3",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "BC_ZQM",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+					},{
+					"item_id" : "BC_Z2S",
+					"label" : "Silky Silver Metallic ",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "BC_Z2S",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+					},{
+					"item_id" : "BC_ZNZ",
+					"label" : "Glistening Grey Metallic ",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "BC_ZNZ",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+					},{
+					"item_id" : "BC_ZAM",
+					"label" : "Midnight Black Pearl",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "BC_ZAM",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+					},{
+					"item_id" : "BC_ZDK",
+					"label" : "Clear Beige Metallic",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "BC_ZDK",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+					},{
+					"item_id" : "BC_ZTG",
+					"label" : "Torque Blue Pearl Metallic",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "BC_ZTG",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+			}]
+		}]
+	},{
+		"category_id" : "WHEELS",
+		"categoryLabel" : "Wheels",
+		"groups" : [{
+				"group_id" : "WH",
+				"type" : "radio",
+				"items" : [{
+					"item_id" : "WH_001",
+					"label" : "15\" Steel wheels with full wheel caps",
+					"checked" : true,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "WH_001",
+					"isConfig" : true,
+					"marketFlag" : "M_C_N/WH_001",
+					"memo" : ""
+					},{
+					"item_id" : "WH_002",
+					"label" : "15\" Alloy wheels",
+					"checked" : false,
+					"visible" : false,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "WH_002",
+					"isConfig" : true,
+					"marketFlag" : "M_C_N/WH_002",
+					"memo" : ""
+			}]
+		}]
+	},{
+		"category_id" : "EXT_OPTION",
+		"categoryLabel" : "Exterior\nOption & Accessory\n(OP)",
+		"groups" : [{
+				"group_id" : "A",
+				"type" : "check",
+				"items" : [{
+					"item_id" : "A_001",
+					"label" : "Bumper corner protector",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "A_001",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+				}]
+			},{
+				"group_id" : "B",
+				"type" : "mix",
+				"items" : [{
+					"item_id" : "B_001",
+					"label" : "Body side moulding (Black)",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "B_001",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+					},{
+					"item_id" : "B_002",
+					"label" : "Body side moulding (Pearl White)",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "B_002",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+					},{
+					"item_id" : "B_003",
+					"label" : "Body side moulding (Silky Silver)",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "B_003",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+				}]
+			},{
+				"group_id" : "C",
+				"type" : "check",
+				"items" : [{
+					"item_id" : "C_001",
+					"label" : "Tail gate chrome garnish",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "C_001",
+					"isConfig" : true,
+					"marketFlag" : "",
+					"memo" : ""
+				}]
+			},{
+				"group_id" : "D",
+				"type" : "check",
+				"items" : [{
+					"item_id" : "D_001",
+					"label" : "Door visor set",
+					"checked" : false,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "D_001",
+					"isConfig" : false,
+					"marketFlag" : "",
+					"memo" : ""
+				}]
+			},{
+				"group_id" : "E",
+				"type" : "mix",
+				"items" : [{
+					"item_id" : "E_001",
+					"label" : "\"Ciaz\" rear emblem and license plates",
+					"checked" : true,
+					"visible" : false,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "E_001",
+					"isConfig" : true,
+					"marketFlag" : "M_CH_N/E_001",
+					"memo" : ""
+					},{
+					"item_id" : "E_002",
+					"label" : "\"ALIVIO\" rear emblem and license plates",
+					"checked" : false,
+					"visible" : false,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "E_002",
+					"isConfig" : true,
+					"marketFlag" : "M_CH_N/E_002",
+					"memo" : ""
+				}]
+			},{
+				"group_id" : "F",
+				"type" : "check",
+				"items" : [{
+					"item_id" : "F_001",
+					"label" : "Separate type rear head restraints",
+					"checked" : true,
+					"visible" : false,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "F_001",
+					"isConfig" : true,
+					"marketFlag" : "M_CH_N/F_001",
+					"memo" : ""
+				}]
+			},{
+				"group_id" : "G",
+				"type" : "check",
+				"items" : [{
+					"item_id" : "G_001",
+					"label" : "Front foglamps",
+					"checked" : false,
+					"visible" : false,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "G_001",
+					"isConfig" : true,
+					"marketFlag" : "M_CH_N/G_001",
+					"memo" : ""
+				}]
+			},{
+				"group_id" : "H",
+				"type" : "check",
+				"items" : [{
+					"item_id" : "H_001",
+					"label" : "Automatic dimming day/night rearview mirror",
+					"checked" : true,
+					"visible" : false,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "H_001",
+					"isConfig" : true,
+					"marketFlag" : "M_CH_N/H_001",
+					"memo" : ""
+			}]
+		}]
+	},{
+		"category_id" : "INT_BASE",
+		"categoryLabel" : "Interior",
+		"groups" : [{
+				"group_id" : "INTBASE",
+				"type" : "radio",
+				"items" : [{
+					"item_id" : "INTBASE_001",
+					"label" : "GLX - Fabric seats",
+					"checked" : false,
+					"visible" : false,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "INTBASE_001",
+					"isConfig" : true,
+					"marketFlag" : "M_C_N/INTBASE_001",
+					"memo" : ""
+					},{
+					"item_id" : "INTBASE_002",
+					"label" : "GLX - Leather seats",
+					"checked" : false,
+					"visible" : false,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "INTBASE_002",
+					"isConfig" : true,
+					"marketFlag" : "M_C_N/INTBASE_002",
+					"memo" : ""
+					},{
+					"item_id" : "INTBASE_003",
+					"label" : "GLX - Leather + fabric seats",
+					"checked" : true,
+					"visible" : true,
+					"subItem" : "",
+					"description" : "",
+					"price" : "",
+					"thumbnail" : "INTBASE_003",
+					"isConfig" : true,
+					"marketFlag" : "M_C_N/INTBASE_003",
+					"memo" : ""
+				}]
+			}]
+	}]
+}

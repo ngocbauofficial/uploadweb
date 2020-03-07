@@ -1,0 +1,176 @@
+﻿@model FooterModel
+@using Nop.Core
+@using Nop.Core.Infrastructure
+@using Nop.Web.Models.Common;
+@{
+    var storeContext = EngineContext.Current.Resolve<IStoreContext>();
+    var storeName = storeContext.CurrentStore.CompanyName;
+    var address = storeContext.CurrentStore.CompanyAddress;
+    var showroom = storeContext.CurrentStore.ShowRoom;
+    var phoneKD = storeContext.CurrentStore.PhonePhongKinhDoanh;
+    var phoneDV = storeContext.CurrentStore.PhonePhongDichVu;
+    var phoneCSKH = storeContext.CurrentStore.PhoneCSKH;
+    var Email = storeContext.CurrentStore.CompanyEmail;
+    var Fax = storeContext.CurrentStore.Fax;
+    var phonefooter = storeContext.CurrentStore.PhoneFooter;
+}
+
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-1">
+                    <div class="line-footer"><span></span></div>
+                    <div class="text-left lien-he">
+                        <span class="name-footer">@storeName</span>
+                        <a href="https://suzuki.com.vn/"><span class="name-footer">  Suzuki Việt Nam: suzuki.com.vn </span></a>
+                        <span><i class="fas fa-map-marker-alt i-footer"></i>Địa chỉ - Xưởng Dịch vụ :</span>
+                        <span>@address</span>
+                        <span><i class="fas fa-map-marker-alt i-footer"></i>Showroom Bán hàng :</span>
+                        <span>@showroom</span>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="line-footer"><span></span></div>
+                    <div class="float-left fix-mm social-tag">
+                        <div class="col-md-12 text-center pb-2 ft-end">
+                            <a class="follow-title">Theo dõi chúng tôi tại </a>
+                        </div>
+                        <div class="col-md-12 text-left social">
+                            <div class="ccc d-flex justify-content-center">
+                                @Html.Action("Social", "Common")
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="line-footer"><span></span></div>
+                    <div class="col-md-12 text-left pb-2 ft-end">
+                        <a class="follow-title">Thông Tin Liên Hệ</a>
+                    </div>
+                    <div class="ass contact-font d-flex justify-content-left">
+                        <div class="col-md-7 col-sm-4 res ">
+                            <span>Phòng kinh doanh : @phoneKD</span>
+                            <span>Phòng hậu mãi - dịch vụ : @phoneDV</span>
+                            <span>Bộ Phận Chăm Sóc Khách Hàng: @phoneCSKH</span>
+                            <span>Fax : @Fax</span>
+                            <span>Email :@Email</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- <div class="desgin-by d-flex justify-content-end pr-3"><span>Designed & Developed by <a
+                    href="ptbteam">PTB Team</a></span></div> -->
+    </div>
+</footer>
+<div class="fix-bot">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="row stick">
+                    <div class="col-md-12">
+                        <a href="@Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("Bang-Gia-Xe-O-To") })"><img src="~/Themes/DefaultClean/Content/images/1.png" alt=""></a>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="@Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("Bang-Gia-Xe-O-To") })">Bảng Giá Xe</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="row stick">
+                    <div class="col-md-12">
+                        <a href="@Url.RouteUrl("DangKyLaiThu")"><img src="~/Themes/DefaultClean/Content/images/2.png" alt=""></a>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="@Url.RouteUrl("DangKyLaiThu")">đăng ký lái thử</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="row stick">
+                    <div class="col-md-12">
+                        <a href="@Url.RouteUrl("TaiBrochure")"><img src="~/Themes/DefaultClean/Content/images/3.png" alt=""></a>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="@Url.RouteUrl("TaiBrochure")">tải brochure</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="row stick">
+                    <div class="col-md-12">
+                        <a href="@Url.RouteUrl("DuToanChiPhi")"><img src="~/Themes/DefaultClean/Content/images/4.png" alt=""></a>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="@Url.RouteUrl("DuToanChiPhi")">dự toán tài chính</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="slide-3-mobile">
+    <div class="wrapper-3 container">
+        <div class="sub-tab-2 row mr-0 mr-0 swiper-container sub-tab-slider-2">
+            <ul class="swiper-wrapper">
+                <li class=" col-md-3 col-sm-6 pr-2 swiper-slide pt-3 pb-2 ">
+                    <a href="/dang-ky-lai-thu" class="text-center">
+                        <img src="~/Themes/DefaultClean/Content/images/2.png" alt="">Đăng Ký Lái Thử
+                    </a>
+                </li>
+                <li class=" col-md-3 col-sm-6 pr-2 swiper-slide pt-3 pb-2">
+                    <a href="@Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("Bang-Gia-Xe-O-To") })" class="text-center">
+                        <img src="~/Themes/DefaultClean/Content/images/1.png" alt="">Bảng Giá Xe
+                    </a>
+                </li>
+
+                <li class=" col-md-3 col-sm-6 pr-2 swiper-slide pt-3 pb-2 ">
+                    <a href="/tai-brochure" class="text-center">
+                        <img src="~/Themes/DefaultClean/Content/images/3.png" alt="">Tải Brochure
+                    </a>
+                </li>
+                <li class=" col-md-3 col-sm-6 pr-2 swiper-slide pt-3 pb-2">
+                    <a href="@Url.RouteUrl("DuToanChiPhi")" class="text-center ">
+                        <img src="~/Themes/DefaultClean/Content/images/4.png" alt="">Dự Toán Tài
+                        Chính
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div style="z-index:999999999" class="phonering-alo-phone phonering-alo-green phonering-alo-show" id="phonering-alo-phoneIcon">
+    <div class="phone-number">
+        @phonefooter
+    </div>
+    <div class="phonering-alo-ph-circle">
+
+    </div>
+    <div class="phonering-alo-ph-circle-fill">
+
+    </div>
+    <a href="tel:+@phonefooter.Replace(" ", "")" class="pps-btn-img" title="Liên hệ">
+        <div class="phonering-alo-ph-img-circle">
+
+        </div>
+    </a>
+</div>
+@section scripts {
+    @RenderSection("scripts", false)
+
+}
+@section Css {
+    @RenderSection("Css", false)
+}

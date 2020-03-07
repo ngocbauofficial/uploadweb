@@ -1,0 +1,11 @@
+﻿@model TopicModel
+@using Nop.Web.Models.Topics;
+@section css{
+    @Html.Raw(Model.Css)
+}
+
+@Html.Raw(Model.Body)
+
+@section scripts{
+    @Html.Raw(Model.Script)
+}

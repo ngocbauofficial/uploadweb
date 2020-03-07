@@ -1,0 +1,132 @@
+﻿@model BookingTestDriverModel
+@using Nop.Web.Models.Checkout
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Checkout").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-checkout-page");
+    Html.AppendPageCssClassParts("html-shipping-address-page");
+}
+
+<div class="bbb">
+    <img src="https://www.beechwoodsuzuki.co.uk/wp-content/uploads/2017/02/Dealer_Banner_1919x458_VITARA-Q1-0PC-_v2.jpg"
+         alt="" class="img-fluid">
+</div>
+
+<section>
+    <!-- đang ký lái thử -->
+    <div class="booking-car container mb-5">
+        <div class="content-nd">
+            <h2>đăng ký lái thử</h2>
+            <div class="line-height"><span></span></div>
+            <h5>
+                Điền vào mẫu dưới đây và gửi yêu cầu của bạn. Đại lý Suzuki chúng tôi sẽ liên hệ với bạn để xác
+                nhận ngày và thời gian đăng ký lái thử của bạn.
+            </h5>
+        </div>
+        <form>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 checked-form">
+                    <input type="text" class="form-control" placeholder="Họ và tên (*)">
+                    <input type="text" class="form-control" placeholder="Số điện thoại (*)">
+                    <select class="main-check-car">
+                        <option value="">Giới tính</option>
+                        <option value="">Nam</option>
+                        <option value="">Nữ</option>
+                    </select>
+                    <select class='main-check-car'>
+                        <option value='none'>Chọn dòng xe</option>
+                        <option value='swift'> Swift</option>
+                        <option value='ertiga'> Ertiga</option>
+                        <option value='ciaz '> Ciaz </option>
+                        <option value='celario'> Celario</option>
+                        <option value='vitara'> Vitara</option>
+                        <option value='carrytruck'> Carry truck</option>
+                        <option value='carrypro'> Carry pro</option>
+                        <option value='carry blinkvan'> Carry blinkvan</option>
+                    </select>
+                    <select class="main-check-car">
+                        <option value="">Nhu cầu</option>
+                        <option value="">Báo giá</option>
+                        <option value="">Lái thử</option>
+                        <option value="">Mua xe</option>
+                    </select>
+                </div>
+                <div class="col-md-6 checked-form">
+                    <select class="main-check-car">
+                        <option value="">Khu vực</option>
+                        <option value="">TP.Hồ Chí Minh</option>
+                        <option value="">Hà Nội</option>
+                        <option value="">Đà Nẵng</option>
+                    </select>
+                    <select class="main-check-car">
+                        <option value="">Đại lý</option>
+                        <option value="">TP.Hồ Chí Minh</option>
+                        <option value="">Hà Nội</option>
+                        <option value="">Đà Nẵng</option>
+                    </select>
+                    <textarea name="" id="" cols="30" rows="10"> Ghi chú...</textarea>
+                    <input type="submit" value="Gửi đăng ký" class="submit-lv2">
+                </div>
+            </div>
+
+            <!-- <div class="col-md-6 checked-form">
+                    <input type="text" class="form-control" placeholder="Họ và tên (*)">
+                </div>
+                <div class="col-md-6 checked-form ">
+                    <input type="text" class="form-control" placeholder="Số điện thoại (*)">
+                </div>
+                <div class="col-md-6 checked-form">
+                    <select class="form-control">
+                        <option value="none">Giới tính</option>
+                        <option>Nam</option>
+                        <option>Nữ</option>
+                    </select>
+                </div>
+                <div class="col-md-6 checked-form">
+                    <select class='main-check-car'>
+                        <option value='none'>Chọn dòng xe</option>
+                        <option value='swift'> swift</option>
+                        <option value='ertiga'> ertiga</option>
+                        <option value='ciaz '> ciaz </option>
+                        <option value='celario'> celario</option>
+                        <option value='vitara'> vitara</option>
+                        <option value='carrytruck'> carry truck</option>
+                        <option value='carrypro'> carry pro</option>
+                        <option value='carry blinkvan'> carry blinkvan</option>
+                    </select>
+                </div>
+                <div class="col-md-6 checked-form">
+                    <select class="main-check-car">
+                        <option value="">Nhu cầu</option>
+                        <option value="">Báo giá</option>
+                        <option value="">Lái thử</option>
+                        <option value="">Mua xe</option>
+                    </select>
+                </div>
+                <div class="col-md-6 checked-form "></div>
+                <div class="col-md-6 checked-form">
+                    <select class="main-check-car">
+                        <option value="">Khu vực</option>
+                        <option value="">TP.Hồ Chí Minh</option>
+                        <option value="">Hà Nội</option>
+                        <option value="">Đà Nẵng</option>
+                    </select>
+                </div>
+                <div class="col-md-6 checked-form "></div>
+                <div class="col-md-6 checked-form">
+                    <select class="main-check-car">
+                        <option value="">đại lý</option>
+                        <option value="">TP.Hồ Chí Minh</option>
+                        <option value="">Hà Nội</option>
+                        <option value="">Đà Nẵng</option>
+                    </select>
+                </div>
+                <div class="col-md-6 checked-form "></div>
+            </div> -->
+        </form>
+    </div>
+    <!-- end -->
+    </section>

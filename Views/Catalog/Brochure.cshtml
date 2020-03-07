@@ -1,0 +1,31 @@
+﻿
+@model List<ProductOverviewModel>
+@using Nop.Web.Models.Catalog;
+<div class="bbb">
+                <img src="/Content/Images/uploaded/panner/panner-brochure.jpg" alt="" class="img-fluid">
+            </div>
+			
+<section class="container">
+<div class="content-nd">
+            <h2>Tải Brochure</h2>
+            <div class="line-height"><span></span></div>
+           
+        </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 com-12">
+                <div class="img-br">
+                    <img src="@item.DefaultPictureModel.ImageUrl"class="img-fluid" title="" alt="" />
+                </div>
+                <div class="title-br">
+                    @item.Name
+                </div>
+                <div class="text-center fix-brochure mb-4 mt-3">
+                    <a href="@Url.RouteUrl("GetSampleDownload", new { productid = item.Id })"> Tải Brochure</a>
+                </div>
+            </div>
+        }
+       
+    </div>
+</section>

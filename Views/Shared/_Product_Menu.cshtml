@@ -1,0 +1,17 @@
+﻿
+@model IEnumerable<ProductOverviewModel>
+@using Nop.Core
+@using Nop.Core.Domain.Orders
+@using Nop.Core.Domain.Tax
+@using Nop.Core.Infrastructure
+@using Nop.Web.Models.Catalog;
+
+@foreach (var item in Model)
+{
+    <li>
+        <a href="@item.SeName" class="item-sub">
+            <img src="@item.DefaultPictureModel.ImageUrl" title="@item.DefaultPictureModel.Title" alt="@item.DefaultPictureModel.AlternateText" class="img-fluid">
+            <span>@item.Name</span>
+        </a>
+    </li>
+}

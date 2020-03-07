@@ -1,0 +1,2 @@
+DataProvider: sqlserver
+DataConnectionString: Data Source=garden.dotvndns.vn,1441;Initial Catalog=yescamera_vn_suzuki;Integrated Security=False;Persist Security Info=False;User ID=yescamera_vn_pnb;Password=ayZ8j2!5;MultipleActiveResultSets=True

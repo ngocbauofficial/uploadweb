@@ -1,0 +1,827 @@
+﻿{"FEATURES":{
+	"stage" :{
+		"stageW" :875,
+		"stageH" :525
+	},
+	"EXT": {
+		"FP_001": { 
+			"feature_id": "FP_001",
+			"label": "Luxurious front grille",
+			"description": "The luxurious front grille with the chromed bricks pattern smoothly flowing into the headlamps, along with the aggressive lower grille on the bumper bring out the strong and elegant styling.",
+			"thumbnail": ["FP_001"],
+			"visible": true,
+			"positions": [{
+				"x":  313,
+				"y":  254
+				},{
+				"x":  388,
+				"y":  254
+				},{
+				"x":  465,
+				"y":  254
+				},{
+				"x":  541,
+				"y":  254
+				},{
+				"x":  612,
+				"y":  253
+				},{
+				"x":  675,
+				"y":  252
+				},{
+				"x":  728,
+				"y":  250
+				},{
+				"x":  770,
+				"y":  249
+				},{
+				"x":  801,
+				"y":  247
+				},{
+				"x":  817,
+				"y":  246
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x":  47,
+				"y":  264
+				},{
+				"x":  54,
+				"y":  287
+				},{
+				"x":  69,
+				"y":  315
+				},{
+				"x":  95,
+				"y":  328
+				},{
+				"x":  133,
+				"y":  312
+				},{
+				"x":  183,
+				"y":  275
+				},{
+				"x":  244,
+				"y":  253
+			}],
+			"memo": ""
+		},
+		"FP_002": { 
+			"feature_id": "FP_002",
+			"label": "Sophisticated headlamps",
+			"description": "The headlamps integrate with the front grille in a continuous, flowing design on a black background surrounded by chrome for a sleek, modern look with a jewel-like shine.",
+			"thumbnail": ["FP_002"],
+			"visible": true,
+			"positions": [{
+				"x":  497,
+				"y":  241
+				},{
+				"x":  565,
+				"y":  241
+				},{
+				"x":  628,
+				"y":  241
+				},{
+				"x":  683,
+				"y":  241
+				},{
+				"x":  504,
+				"y":  241
+				},{
+				"x":  571,
+				"y":  240
+				},{
+				"x":  632,
+				"y":  239
+				},{
+				"x":  684,
+				"y":  238
+				},{
+				"x":  727,
+				"y":  237
+				},{
+				"x":  758,
+				"y":  235
+				},{
+				"x":  780,
+				"y":  233
+				},{
+				"x":  788,
+				"y":  231
+				},{
+				"x":  788,
+				"y":  230
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x":  137,
+				"y":  169
+				},{
+				"x":  110,
+				"y":  182
+				},{
+				"x":  92,
+				"y":  205
+				},{
+				"x":  82,
+				"y":  232
+				},{
+				"x":  78,
+				"y":  259
+				},{
+				"x":  85,
+				"y":  286
+				},{
+				"x":  106,
+				"y":  314
+				},{
+				"x":  136,
+				"y":  340
+				},{
+				"x":  179,
+				"y":  363
+				},{
+				"x":  230,
+				"y":  362
+				},{
+				"x":  290,
+				"y":  321
+				},{
+				"x":  356,
+				"y":  268
+				},{
+				"x":  425,
+				"y":  241
+			}],
+			"memo": ""
+		},
+		"FP_003": { 
+			"feature_id": "FP_003",
+			"label": "Chrome accents",
+			"description": "Bright and shiny chrome accents on the front grille, rear garnish and door handles contribute to a sense of luxury.",
+			"thumbnail": ["FP_003"],
+			"visible": false,
+			"positions": [{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x":  45,
+				"y":  209
+				},{
+				"x":  54,
+				"y":  208
+				},{
+				"x":  75,
+				"y":  209
+				},{
+				"x":  109,
+				"y":  209
+				},{
+				"x":  155,
+				"y":  210
+				},{
+				"x":  213,
+				"y":  210
+				},{
+				"x":  279,
+				"y":  211
+				},{
+				"x":  353,
+				"y":  211
+				},{
+				"x":  430,
+				"y":  211
+				},{
+				"x":  507,
+				"y":  211
+				},{
+				"x":  580,
+				"y":  239
+				},{
+				"x":  647,
+				"y":  292
+				},{
+				"x":  704,
+				"y":  329
+				},{
+				"x":  751,
+				"y":  325
+				},{
+				"x":  786,
+				"y":  297
+				},{
+				"x":  807,
+				"y":  267
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+			}],
+			"memo": ""
+		},
+		"FP_004": { 
+			"feature_id": "FP_004",
+			"label": "Chrome accents",
+			"description": "Bright and shiny chrome accents on the front grille, rear garnish and door handles contribute to a sense of luxury.",
+			"thumbnail": ["FP_004"],
+			"visible": false,
+			"positions": [{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x":  45,
+				"y":  209
+				},{
+				"x":  54,
+				"y":  208
+				},{
+				"x":  75,
+				"y":  209
+				},{
+				"x":  109,
+				"y":  209
+				},{
+				"x":  155,
+				"y":  210
+				},{
+				"x":  213,
+				"y":  210
+				},{
+				"x":  279,
+				"y":  211
+				},{
+				"x":  353,
+				"y":  211
+				},{
+				"x":  430,
+				"y":  211
+				},{
+				"x":  507,
+				"y":  211
+				},{
+				"x":  580,
+				"y":  239
+				},{
+				"x":  647,
+				"y":  292
+				},{
+				"x":  704,
+				"y":  329
+				},{
+				"x":  751,
+				"y":  325
+				},{
+				"x":  786,
+				"y":  297
+				},{
+				"x":  807,
+				"y":  267
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+			}],
+			"memo": ""
+		},
+		"FP_005": { 
+			"feature_id": "FP_005",
+			"label": "Large rear LED combination lamps",
+			"description": "Large rear LED combination lamps integrated with the rear garnish for a wider look.",
+			"thumbnail": ["FP_005"],
+			"visible": true,
+			"positions": [{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x":  56,
+				"y":  202
+				},{
+				"x":  71,
+				"y":  202
+				},{
+				"x":  99,
+				"y":  203
+				},{
+				"x":  141,
+				"y":  204
+				},{
+				"x":  194,
+				"y":  204
+				},{
+				"x":  257,
+				"y":  205
+				},{
+				"x":  122,
+				"y":  203
+				},{
+				"x":  173,
+				"y":  204
+				},{
+				"x":  235,
+				"y":  204
+				},{
+				"x":  305,
+				"y":  205
+				},{
+				"x":  380,
+				"y":  205
+				},{
+				"x":  457,
+				"y":  235
+				},{
+				"x":  532,
+				"y":  298
+				},{
+				"x":  602,
+				"y":  350
+				},{
+				"x":  664,
+				"y":  357
+				},{
+				"x":  716,
+				"y":  336
+				},{
+				"x":  757,
+				"y":  311
+				},{
+				"x":  788,
+				"y":  286
+				},{
+				"x":  808,
+				"y":  256
+				},{
+				"x":  816,
+				"y":  227
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+			}],
+			"memo": ""
+		},
+		"FP_006": { 
+			"feature_id": "FP_006",
+			"label": "Expanded luggage space",
+			"description": "The smart packaging of the all-new Ertiga allows for 199 litres* of boot space to meet various kinds of customers’ needs.\n*Measured using the German Association of the Automotive Industry (VDA) method.",
+			"thumbnail": ["FP_006"],
+			"visible": true,
+			"positions": [{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x":  41,
+				"y":  177
+				},{
+				"x":  44,
+				"y":  177
+				},{
+				"x":  53,
+				"y":  177
+				},{
+				"x":  74,
+				"y":  177
+				},{
+				"x":  109,
+				"y":  177
+				},{
+				"x":  155,
+				"y":  178
+				},{
+				"x":  213,
+				"y":  178
+				},{
+				"x":  280,
+				"y":  178
+				},{
+				"x":  353,
+				"y":  178
+				},{
+				"x":  430,
+				"y":  178
+				},{
+				"x":  507,
+				"y":  178
+				},{
+				"x":  580,
+				"y":  207
+				},{
+				"x":  647,
+				"y":  261
+				},{
+				"x":  704,
+				"y":  299
+				},{
+				"x":  751,
+				"y":  296
+				},{
+				"x":  786,
+				"y":  268
+				},{
+				"x":  807,
+				"y":  242
+				},{
+				"x":  816,
+				"y":  214
+				},{
+				"x":  815,
+				"y":  187
+				},{
+				"x":  807,
+				"y":  162
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x": null,
+				"y": null
+			}],
+			"memo": ""
+		},
+		"FP_007": { 
+			"feature_id": "FP_007",
+			"label": "HEARTECT platform",
+			"description": "The lighter and more rigid new-generation platform for high fuel efficiency, collision safety and fundamental performance.",
+			"thumbnail": ["FP_007"],
+			"visible": true,
+			"positions": [{
+				"x":  572,
+				"y":  339
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x":  287,
+				"y":  338
+				},{
+				"x":  293,
+				"y":  344
+				},{
+				"x":  303,
+				"y":  347
+				},{
+				"x":  317,
+				"y":  349
+				},{
+				"x":  335,
+				"y":  351
+				},{
+				"x":  355,
+				"y":  352
+				},{
+				"x":  379,
+				"y":  354
+				},{
+				"x":  404,
+				"y":  354
+				},{
+				"x":  430,
+				"y":  354
+				},{
+				"x":  456,
+				"y":  354
+				},{
+				"x":  481,
+				"y":  353
+				},{
+				"x":  505,
+				"y":  353
+				},{
+				"x":  525,
+				"y":  352
+				},{
+				"x":  544,
+				"y":  350
+				},{
+				"x":  556,
+				"y":  348
+				},{
+				"x":  566,
+				"y":  345
+				},{
+				"x":  571,
+				"y":  341
+				},{
+				"x": null,
+				"y": null
+				},{
+				"x":  288,
+				"y":  340
+				},{
+				"x":  294,
+				"y":  345
+				},{
+				"x":  304,
+				"y":  355
+				},{
+				"x":  318,
+				"y":  368
+				},{
+				"x":  336,
+				"y":  379
+				},{
+				"x":  356,
+				"y":  387
+				},{
+				"x":  379,
+				"y":  392
+				},{
+				"x":  404,
+				"y":  397
+				},{
+				"x":  430,
+				"y":  397
+				},{
+				"x":  455,
+				"y":  396
+				},{
+				"x":  481,
+				"y":  393
+				},{
+				"x":  503,
+				"y":  387
+				},{
+				"x":  524,
+				"y":  376
+				},{
+				"x":  543,
+				"y":  361
+				},{
+				"x":  557,
+				"y":  348
+				},{
+				"x":  566,
+				"y":  344
+			}],
+			"memo": ""
+		}
+	}
+}}

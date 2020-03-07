@@ -1,0 +1,39 @@
+﻿@model HomePageNewsItemsModel
+@using Nop.Web.Models.News;
+@if (Model.NewsItems.Count > 0)
+{
+<section class="news-wapper">
+    <div class="container">
+        <div class="new" >
+            <h1>tin tức</h1>
+        </div>
+    </div>
+    <div class="color-new">
+        <div class="container">
+            <div class="new-scroll">
+                <div class="owl-carousel owl-theme">
+@foreach (var item in Model.NewsItems)
+{
+                    <div>
+                        <div class="item-slider">
+                            <a class="fade-img" href="@item.SeName"><img src="@item.PictureModel.ImageUrl" alt="@item.MetaTitle" class="img-fluid"></a>
+                        </div>
+                        <div class="title-new">
+                            <a href="@item.SeName" title="@item.Title">
+                              @item.Title
+                            </a>
+                        </div>
+                        <div class="short-news">
+                            <a href="@item.SeName">@item.Short</a>
+                        </div>
+                    </div>
+}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn btn-view d-flex justify-content-center">
+        <a href="@Url.RouteUrl("NewsArchive")">@T("News.ViewAll")</a>
+    </div>
+</section>
+}

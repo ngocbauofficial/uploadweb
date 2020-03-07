@@ -1,0 +1,137 @@
+﻿@model ProductModel
+
+<div class="panel-group">
+    @if (Model.Id > 0)
+    {
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.NoiThat)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopTextAreaFor(model => model.NoiThat)
+                        @Html.ValidationMessageFor(model => model.NoiThat)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.Noithat1)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.Noithat1)
+                        @Html.ValidationMessageFor(model => model.Noithat1)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.TextNoiThat1)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.TextNoiThat1)
+                        @Html.ValidationMessageFor(model => model.TextNoiThat1)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.Noithat2)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.Noithat2)
+                        @Html.ValidationMessageFor(model => model.Noithat2)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.TextNoiThat2)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.TextNoiThat2)
+                        @Html.ValidationMessageFor(model => model.TextNoiThat2)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.Noithat3)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.Noithat3)
+                        @Html.ValidationMessageFor(model => model.Noithat3)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.TextNoiThat3)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.TextNoiThat3)
+                        @Html.ValidationMessageFor(model => model.TextNoiThat3)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.Noithat4)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.Noithat4)
+                        @Html.ValidationMessageFor(model => model.Noithat4)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.TextNoiThat4)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.TextNoiThat4)
+                        @Html.ValidationMessageFor(model => model.TextNoiThat4)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.Noithat5)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.Noithat5)
+                        @Html.ValidationMessageFor(model => model.Noithat5)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.TextNoiThat5)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.TextNoiThat5)
+                        @Html.ValidationMessageFor(model => model.TextNoiThat5)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.Noithat6)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.Noithat6)
+                        @Html.ValidationMessageFor(model => model.Noithat6)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.TextNoiThat6)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.TextNoiThat6)
+                        @Html.ValidationMessageFor(model => model.TextNoiThat6)
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @T("Admin.Catalog.Products.Pictures.SaveBeforeEdit")
+            </div>
+        </div>
+    }
+</div>

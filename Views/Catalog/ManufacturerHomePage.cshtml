@@ -1,0 +1,44 @@
+﻿@model IList<ManufacturerModel>
+@{
+
+    Layout = null;
+
+}
+@using Nop.Web.Models.Catalog;
+
+
+<section>
+    <div class="container">
+        <div class="content-nd">
+            @foreach (var item in Model.Take(1))
+            {
+                <h1>@item.Name</h1>
+                <div class="line-height"><span></span></div>
+                <div class="discription">
+                    <h4 class="text-center mt-4 ">
+                        @Html.Raw(@item.Description)
+                    </h4>
+                    @{Html.RenderAction("ManufacturerHomePageProductsOne", new { manufacturerId = item.Id });}
+                </div>
+                        }
+
+        </div>
+
+        <div class="content-nd">
+
+            @foreach (var item in Model.Skip(1).Take(1))
+            {
+                <h1>@item.Name</h1>
+                <div class="line-height"><span></span></div>
+                <div class="discription">
+                    <h4 class="text-center mt-4 ">
+                        @Html.Raw(@item.Description)
+                    </h4>
+                    @{Html.RenderAction("ManufacturerHomePageProductsTrue", new { manufacturerId = item.Id });}
+                </div>
+                        }
+
+
+        </div>
+    </div>
+</section>

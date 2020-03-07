@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+@using Nop.Core
+@using Nop.Core.Domain.Tax
+@using Nop.Core.Infrastructure
+@using Nop.Web.Models.Common;
+@{
+    var storeContext = EngineContext.Current.Resolve<IStoreContext>();
+    var storeName = storeContext.CurrentStore.CompanyName;
+    var address = storeContext.CurrentStore.CompanyAddress;
+    var showroom = storeContext.CurrentStore.ShowRoom;
+    var phoneKD = storeContext.CurrentStore.PhonePhongKinhDoanh;
+    var phoneDV = storeContext.CurrentStore.PhonePhongDichVu;
+    var phoneCSKH = storeContext.CurrentStore.PhoneCSKH;
+    var Email = storeContext.CurrentStore.CompanyEmail;
+    var Fax = storeContext.CurrentStore.Fax;
+}
+@if (IsSectionDefined("Breadcrumb"))
+{
+    @section Breadcrumb {
+        @RenderSection("Breadcrumb")
+    }
+}
+@Html.Widget("main_column_before")
+<section class="newpage pt-3">
+    <div class="container">
+        <!-- <h1 class="text-center text-uppercase pt-3 pb-3">tin tức và sự kiện</h1> -->
+        <div class="row m-0 p-0">
+            <div class="col-md-3 vitri">
+                <div class="line-top"></div>
+                <ul class="slidebar-menu menu-block pl-0"></ul>
+                <ul class="sidebar-block menu-block">
+                    <li class="normal"><a href="@Url.RouteUrl("NewsSuzuki")">Tin tức &amp; Sự kiện</a></li>
+                    <li class="normal"><a href="@Url.RouteUrl("NewsPromotionsSuzuki")">Khuyến mãi</a></li>
+
+                </ul>
+                <div class="slidebar-cateqery ">
+                    <ul class="pl-0">
+                        <li>
+                            <a href="#" class="hotline">
+                                Phòng dịch vụ<span>@phoneDV</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sale">Chăm sóc khách hàng <span>@phoneCSKH</span></a>
+                        </li>
+                        <li><a href="/tim-kiem-dai-ly" class="dealer">Mạng lưới đại lý</a></li>
+                        <li><a href="/du-toan-chi-phi" class="calculator">Dự toán chi phi</a></li>
+                        <li><a href="/bang-gia-xe" class="price">Bảng giá xe</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9 full-view ">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</section>
+@Html.Widget("main_column_after")
+@section scripts {
+    @RenderSection("scripts", false)
+}
+@section Css {
+    @RenderSection("Css", false)
+}

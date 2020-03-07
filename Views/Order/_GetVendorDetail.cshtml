@@ -1,0 +1,19 @@
+﻿@if (@ViewBag.AddressVendor != null)
+{
+    <div class="title-info-vendor">
+        <h5>Thông Tin Đại Lý Đăng Ký Của Bạn</h5>
+    </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>@ViewBag.NameVendor</h4>
+                    <div class="info-vendor">
+                        <span><i class="fas vendor-icon fa-map-marker-alt"></i>Địa chỉ : @ViewBag.AddressVendor</span>
+                        <span><i class="fas vendor-icon fa-phone"></i>Phone: @ViewBag.PhoneVendor</span>
+                        <span><i class="fas vendor-icon fa-envelope"></i>Email: @ViewBag.EmailVendor</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    @Html.Raw(ViewBag.Google)
+                </div>
+            </div>
+}

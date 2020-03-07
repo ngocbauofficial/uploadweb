@@ -1,0 +1,204 @@
+﻿@model BookingModel
+@using Nop.Web.Models.Order
+@using Nop.Core.Domain.Directory;
+@using Nop.Core.Domain.Catalog;
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    //title
+    Html.AddTitleParts("Đăng Ký Lái Thử");
+    //page class
+    Html.AddScriptParts(ResourceLocation.Foot, "~/Themes/DefaultClean/Content/js/jquery-confirm.js", true);
+    Html.AddCssFileParts(ResourceLocation.Head, "~/Themes/DefaultClean/Content/css/jquery-confirm.css", true);
+    Html.AppendPageCssClassParts("html-checkout-page");
+    Html.AppendPageCssClassParts("html-shipping-address-page");
+}
+<div class="bbb">
+    @Html.Widget("dang-ky-lai-thu")
+</div>
+<section>
+    <!-- đang ký lái thử -->
+    <div class="booking-car container">
+        <div class="content-nd">
+            <h2>đăng ký lái thử</h2>
+            <div class="line-height"><span></span></div>
+            <h5>
+                Điền vào mẫu dưới đây và gửi yêu cầu của bạn. Đại lý Suzuki chúng tôi sẽ liên hệ với bạn để xác
+                nhận ngày và thời gian đăng ký lái thử của bạn.
+            </h5>
+        </div>
+        @using (Html.BeginForm("Booking", "Order", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProductId)
+                        @Html.DropDownList("ProductId", null, "Chọn", htmlAttributes: new { @class = "main-check-car form-control" })
+                        @Html.ValidationMessageFor(model => model.ProductId)
+                    </div>
+                </div>
+                <div class="col-md-6" id="Picture">
+                    <img alt="" src="@ViewBag.Images" />
+                </div>
+            </div>
+            <div class="line-bk"></div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 checked-form">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name)
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Phone)
+                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Phone)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Gender)
+                        <select id="Gender" name="Gender" class="main-check-car form-control">
+                            <option value="false">Nam</option>
+                            <option value="true">Nữ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Deed)
+                        <select id="Deed" name="Deed" class="main-check-car form-control">
+                            <option value="1">Đăng Ký Lái Thử</option>
+                            <option value="2">Báo Giá</option>
+                            <option value="3">Mua Xe</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 checked-form">
+                    <div class="form-group">
+                        <div class="row">
+                            <div style="width:20%">
+                            </div>
+                            <div style="width:80%" id="Status"> </div>
+                        </div>
+                        @Html.LabelFor(model => model.State)
+                        @Html.DropDownList("State", null, "Chọn", htmlAttributes: new { @class = "main-check-car form-control" })
+                        @Html.ValidationMessageFor(model => model.State)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.VendorId)
+                        @Html.DropDownList("VendorId", null, "Chọn", htmlAttributes: new { @class = "main-check-car form-control" })
+                        @Html.ValidationMessageFor(model => model.VendorId)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Note)
+                        @Html.TextAreaFor(m => m.Note, new { @class = "form-control", @rows = "4" })
+                    </div>
+                </div>
+                <input type="submit" value="Gửi đăng ký" class="submit-lv2">
+            </div>
+        }
+    </div>
+    <div class="container">
+        <div class="gooogle-register mb-3" id="google-vendor">
+            @if (@ViewBag.NameVendor != null)
+            {
+                <div class="title-info-vendor">
+                    <h5>Thông Tin Đại Lý Đăng Ký Của Bạn</h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>@ViewBag.NameVendor</h4>
+                        <div class="info-vendor">
+                            <span><i class="fas vendor-icon fa-map-marker-alt"></i>Địa chỉ : @ViewBag.AddressVendor</span>
+                            <span><i class="fas vendor-icon fa-phone"></i>Phone: @ViewBag.PhoneVendor</span>
+                            <span><i class="fas vendor-icon fa-envelope"></i>Email: @ViewBag.EmailVendor</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        @Html.Raw(ViewBag.Google)
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $("#State").change(function () {
+            var selectedItem = $(this).val();
+            $.ajax({
+                url: "/Order/GetVendors",
+                type: "POST",
+                dataType: "html",
+                data: { "StateId": selectedItem },
+                success: function (data) {
+                    if (data == 0) {
+                        $("#Status").html('<font color="Red">Rất tiếc tỉnh thành bạn của đang chọn không có đại lý suzuki vui lòng chọn tỉnh thành gần nhất</font>');
+                        $("#VendorId").html(data);
+                        $("#google-vendor").html("");
+                        $("#State").css("border-color", "Red");
+                    }
+                    else {
+                        $("#VendorId").html(data);
+                        $("#Status").html('');
+                        $("#google-vendor").html("");
+                        $("#State").css("border-color", "#ced4da");
+                    }
+                },
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#ProductId").change(function () {
+            var selectedItem = $(this).val();
+            $.ajax({
+                url: "/Order/Getimages",
+                type: "POST",
+                dataType: "html",
+                data: { "Productid": selectedItem },
+                success: function (data) {
+                    $("#Picture").html(data);
+                },
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#VendorId").change(function () {
+            var selectedItem = $(this).val();
+            $.ajax({
+                url: "/Order/GetVendorDetail",
+                type: "POST",
+                dataType: "html",
+                data: { "vendorid": selectedItem },
+                success: function (data) {
+                    $("#google-vendor").html(data);
+                    position = $('#google-vendor').offset();
+                    $('html,body').animate({
+                        scrollTop: position.top - 100
+                    }, 500);
+                },
+            });
+        });
+    });
+</script>
+@if (TempData["Message"] != null)
+{
+    @section script{
+        @Html.Raw(TempData["Message"])
+<script>
+        $.alert({
+            title: 'Đăng Ký Thành Công !',
+            content: 'Gửi Thông Tin Đăng Ký Lái Thử Thành Công <br> Cảm ơn quý khách đã tin tưởng và đồng hành cùng chúng tôi ! ',
+            icon: 'fas fa-check-circle',
+            animation: 'scale',
+            closeAnimation: 'scale',
+            buttons: {
+                okay: {
+                    text: 'Đồng Ý',
+                    btnClass: 'btn-blue'
+                }
+            }
+        });
+        </script>
+    }
+}

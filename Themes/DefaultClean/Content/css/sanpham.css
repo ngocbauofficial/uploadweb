@@ -1,0 +1,176 @@
+.nav-menu-2 {
+    background: red;
+    width: 100%;
+    height: 87px;
+}
+
+.small-container {
+    width: 1020px;
+    display: block;
+    margin: 0 auto;
+}
+
+.feature-point .gray-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .5);
+    display: none;
+    z-index: 1;
+}
+
+.feature-point .car-display {
+    padding: 50px 0;
+    position: relative;
+}
+
+.feature-point .car-display img {
+    background-repeat: no-repeat;
+    box-sizing: inherit;
+}
+
+.feature-point .tooltip {
+    z-index: 10;
+}
+
+.feature-point .display-car {
+    margin: 0 auto;
+}
+
+.poi {
+    position: absolute;
+    background: #000;
+    background-clip: border-box;
+    border: 4px solid red;
+    width: 25px;
+    height: 25px;
+    top: 0;
+    left: 0;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-clip: padding-box;
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, .8);
+    -webkit-animation: pulse 1.5s infinite;
+}
+
+.feature-point {
+    margin-top: 300px;
+    position: relative;
+}
+
+.poi.poi-1 {
+    top: 37%;
+    left: 34%;
+}
+
+.poi.poi-2 {
+    top: 30%;
+    left: 40%;
+}
+
+.poi.poi-3 {
+    top: 42%;
+    left: 52%;
+}
+
+.poi.poi-4 {
+    top: 46%;
+    left: 71%;
+}
+
+.poi.poi-5 {
+    top: 59%;
+    left: 56%;
+}
+
+.poi.poi-6 {
+    top: 66%;
+    left: 45%;
+}
+
+.caption h3 {
+    font-size: 12px;
+}
+
+.tooltip-content .caption {
+    width: 100%;
+    background: #fff;
+    display: block;
+    padding: 10px;
+    padding-top: 10px;
+    margin-top: -20px;
+    padding-top: 30px;
+    color: #000;
+}
+
+.tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-box {
+	background: transparent !important;
+    /* border: 3px solid red; */
+    border:none !important;
+	border-radius: 6px;
+	/* box-shadow: 5px 5px 2px 0 rgba(0,0,0,0.4); */
+}
+
+.tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-content {
+	color: blue;
+	padding: 8px;
+}
+
+.rounded {
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    background-clip: padding-box;
+    overflow: hidden;
+}
+
+img {
+    border-style: none;
+}
+
+.tooltip-content img {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+.tooltip {
+    opacity: 1 !important;
+}
+
+.tooltip_templates {
+    display: none;
+}
+
+.tooltip-content {
+    width: 200px;
+    /* background: 0 0; */
+    /* background-clip: border-box; */
+    /* box-sizing: border-box; */
+}
+
+.tooltipster-default {
+    border: none;
+}
+.poi:hover .gray-overlay{
+    display: block;
+}
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(.9);
+        -moz-transform: scale(.9);
+        transform: scale(.9);
+    }
+    70% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        transform: scale(1);
+        box-shadow: 0 0 0 18px rgba(255, 0, 0, 0);
+    }
+    100% {
+        -webkit-transform: scale(.9);
+        -moz-transform: scale(.9);
+        transform: scale(.9);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
